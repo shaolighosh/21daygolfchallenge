@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="<?php echo base_url();?>public/assets/img/favicon.png" type="image/x-icon" />
+    <title>21 Day Challenge Masterclass</title>
+      <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+
+    <link href="<?php echo base_url();?>public/assets/css/bootstrap.css" rel="stylesheet">
+    <link href="<?php echo base_url();?>public/assets/css/slick.css" rel="stylesheet">
+    <link href="<?php echo base_url();?>public/assets/css/slick-theme.css" rel="stylesheet">
+    <link href="<?php echo base_url();?>public/assets/css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <!-- font-family: 'Bebas Neue', cursive; -->
+    
+</head>
+
+<body>
+        <!--top header -->
+    <header class="top-header-section">
+        <!-- nav -->
+        <div class="nav-section-header">
+            <div class="nav-section-nav-all">
+                <div class="navbar-toggler__logo">
+                    <div class="nav-section-logo">
+                        <a href="#"><img src="<?php echo base_url();?>public/assets/img/logo.png"></a>
+                    </div>
+                    <!-- <div class="toggle-btn toggle__none-mobile">
+                        <div class="one"></div>
+                        <div class="two"></div>
+                        <div class="three"></div>
+                    </div> -->
+                </div>
+                <div class="menu-user">
+                    <div class="menu-user__img"><img src="<?php echo base_url();?>public/assets/img/menu-user.png" alt=""></div>
+                    <div class="menu-user-wrapper">
+                        <div class="menu-user-img"><img src="<?php echo base_url();?>public/assets/img/menu-user-img.png" alt=""></div>
+                        <div class="menu-user-con">
+                            <h2>John Doe <span>Toronto, Canada</span></h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="nav-section-nav">
+                    <ul>
+                        <li><a href="<?php echo site_url();?>/challenge" class="active"><img src="<?php echo base_url();?>public/assets/img/menu1.png" alt=""> <span>Course Management</span></a></li>
+                        <li><a href="<?php echo site_url();?>/progress-management"><img src="<?php echo base_url();?>public/assets/img/menu2.png" alt=""> <span>Progress Management</span></a></li>
+                        <li><a href="<?php echo site_url();?>/media-management"><img src="<?php echo base_url();?>public/assets/img/menu3.png" alt=""> <span>Media management</span></a></li>
+                        <li><a href="<?php echo site_url();?>/voting-management"><img src="<?php echo base_url();?>public/assets/img/menu4.png" alt=""> <span>Voting management</span></a></li>
+                        <li><a href="<?php echo site_url();?>/mental-imagery"><img src="<?php echo base_url();?>public/assets/img/menu5.png" alt=""> <span>Mental Imagery</span></a></li>
+                        <li><a href="<?php echo site_url();?>/settings"><img src="<?php echo base_url();?>public/assets/img/menu6.png" alt=""> <span>Settings</span></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!--end nav -->
+    </header>
+     <section class="content-section-header">
+     <div class="content-section-wrap">
+     <div class="content-section-header-top">
+            <div class="sub-content-section-header-top2">
+                <div class="toggle-btn toggle__none">
+                    <div class="one"></div>
+                    <div class="two"></div>
+                    <div class="three"></div>
+                </div>
+                <h1 class="page__titel"><span>21 Day </span> Challenge Masterclass</h1>
+            </div>
+            <div class="sub-content-section-header-top">
+                <div class="avtar_info">
+                    <div><img src="<?php echo base_url();?>public/assets/img/menu-user-img.png"></div>
+                    <p>John Doe</p>
+                    <div class="drop-down-avtar">
+                        <ul>
+                            <li><a href="#">Change Password</a></li>
+                            <li><a href="my-profile.html">My Profile</a></li>
+                            <li><a href="#">Logout</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>            
+        </div>
+<?php echo $content;?>
+</div>
+<div class="copyright">© 2023 Logohere. All Rights Reserved.</div> 
+<div id="dialog" title="" style="display:none;" class="custom-popup">
+  <p><b>Please upload your learning video and share it with your 21-day challenge
+masterclass community and your own
+social media accounts with
+family and friends and unlock
+different levels with rewards and prizes</b> <br> AND <br> you can also click on Next
+to go to next step.</p>
+</div>
+
+</section>
+ <script src="<?php echo base_url();?>public/assets/js/jquery.min.js"></script>
+    <script src="<?php echo base_url();?>public/assets/js/bootstrap.js"></script>
+    <script src="<?php echo base_url();?>public/assets/js/slick.min.js"></script>
+    <script src="<?php echo base_url();?>public/assets/js/custom.js"></script>
+      <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+
+<script>
+$(document).ready(function() {
+
+    $( "#dialog" ).on( "dialogclose", function( event, ui ) {
+        $(".file-upload").show();
+        $(".file-upload-right").show();
+        //alert("ddd");
+
+    } );
+
+
+        $(".completedVideo").click(function() {
+            var checked = $(this).is(':checked');
+            if (checked) {
+                $( "#dialog" ).dialog();
+               // alert('checked');
+            } else {
+                alert('unchecked');
+            }
+        });
+    });
+
+</script>
+    
+</body>
+
+</html>

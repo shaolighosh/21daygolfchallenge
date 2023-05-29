@@ -1,0 +1,206 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+
+class Signup extends CI_Controller {
+
+	/**
+	 * Index Page for this controller.
+	 *
+	 * Maps to the following URL
+	 * 		http://example.com/index.php/welcome
+	 *	- or -
+	 * 		http://example.com/index.php/welcome/index
+	 *	- or -
+	 * Since this controller is set as the default controller in
+	 * config/routes.php, it's displayed at http://example.com/
+	 *
+	 * So any other public methods not prefixed with an underscore will
+	 * map to /index.php/welcome/<method_name>
+	 * @see https://codeigniter.com/user_guide/general/urls.html
+	 */
+
+	public function __construct(){
+		parent::__construct();
+		$this->load->helper('url');
+		$this->load->helper('form');
+		$this->load->library('session');
+		
+		$this->load->database();
+		$this->load->model(array('Common_model'));
+		$this->load->library('user_agent');
+		$this->table_login_data = 'user'; 
+		$this->load->library('user_agent');
+		$this->table_login_data = 'user';
+      }
+
+	/* admin login */
+	public function index()
+	{
+		
+		
+		
+		if($this->input->post('email')){
+			
+			$where = array('user_email' => $this->input->post('email'), 'password' => md5($this->input->post('password')) );
+			$rows = $this->Common_model->numrows($this->table_login_data,$where);
+			
+		
+			if($rows > 0){
+				$single = $this->Common_model->getSingle($this->table_login_data,$where);
+				//print_r($single);die();
+				$newdata = array(
+				        'user_id'  => $single->id,
+				        'id'     => $single->id,
+				        'role' => $single->user_email,
+				        'logged_in' => TRUE
+				);
+
+				$this->session->set_userdata($newdata);
+				//print_r($_SESSION);die();
+				redirect('proposal');
+			}else{
+				
+				$this->session->set_flashdata('error', 'Email or password is worng.');
+				redirect('/');
+			}
+		}else{
+			//$this->load->view('site/login/login');
+			
+            $allData['countries'] = $this->Common_model->getAllDataOrder('golfersu_signup_countries', array(),'country_name','ASC');
+            $data['content'] = $this->load->view('site/signup/signup',$allData, true);
+			$this->load->view('template/site/front-main',$data);
+		}
+		
+	}
+	
+	public function thank_you()
+	{	
+
+		$this->load->view('site/thank-you');
+	}
+
+	public function logout()
+	{	
+
+		$this->session->sess_destroy();
+		redirect("login");
+	}
+
+	public function handlePayment()
+    {
+        require_once('application/libraries/stripe-php/init.php');
+		//print_r($_POST);
+        \Stripe\Stripe::setApiKey($this->config->item('stripe_secret'));
+		
+      
+            //echo $this->config->item('stripe_secret'); 
+			//print_r($data);
+			
+
+		try {  
+            // $charge = \Stripe\Charge::create(array( 
+            //     'customer' => $customer->id, 
+            //     'amount'   => $itemPriceCents, 
+            //     'currency' => $currency, 
+            //     'description' => $itemName 
+            // )); 
+
+			$charge =   \Stripe\Charge::create ([
+					"amount" => 100 * 14.95,
+					"currency" => "usd",
+					"source" => $this->input->post('stripeToken'),
+					"description" => "Dummy stripe payment." 
+			]);
+
+        }catch(Exception $e) {  
+            $api_error = $e->getMessage();  
+        } 
+         
+        if(empty($api_error) && $charge){ 
+         
+            // Retrieve charge details 
+            $chargeJson = $charge->jsonSerialize(); 
+         
+            // Check whether the charge is successful 
+            if($chargeJson['amount_refunded'] == 0 && empty($chargeJson['failure_code']) && $chargeJson['paid'] == 1 && $chargeJson['captured'] == 1){ 
+                // Transaction details  
+                $transactionID = $chargeJson['balance_transaction']; 
+                $paidAmount = $chargeJson['amount']; 
+                $paidAmount = ($paidAmount/100); 
+                $paidCurrency = $chargeJson['currency']; 
+                $payment_status = $chargeJson['status']; 
+                 
+                // If the order is successful 
+                if($payment_status == 'succeeded'){ 
+                    $ordStatus = 'success'; 
+                    $statusMsg = 'Your Payment has been Successful!'; 
+
+						$userData = array(
+						'username' => $this->input->post('user_name'),
+						'user_email' => $this->input->post('email'),
+						'first_name' => $this->input->post('first_name'),
+						'last_name' => $this->input->post('last_name'),
+						'password' => md5($this->input->post('password')),
+						'name' => $this->input->post('first_name').' '.$this->input->post('last_name'),
+						'country_id' => $this->input->post('country'),
+						'status' => 'Y',
+						'street_address' => $this->input->post('street_address'),
+						'street_address1' => $this->input->post('street_address1'),
+						'city' => $this->input->post('city'),
+						//'video_file' => $this->input->post('stripeToken'),
+						'post_code' => $this->input->post('post_code'),
+					);
+					$this->Common_model->insertData('golfersu_user',$userData);
+					$insert_id = $this->db->insert_id();
+					//  echo "<pre>";
+					// print_r($chargeJson);
+
+					$paymentData = array(
+						'user_id' => $insert_id,
+						'item_price_currency' => $chargeJson['amount'],
+						'paid_amount' => $paidAmount,
+						'paid_amount_currency' => $paidCurrency,
+						'txn_id' => $transactionID,
+						'payment_status' => $payment_status,
+						
+					);
+					$this->Common_model->insertData('golfersu_user_payments',$paymentData);
+
+					$this->session->set_flashdata('success', $statusMsg);
+					
+					$newdata = array(
+							'user_id'  => $insert_id,
+							'id'     => $insert_id,
+							'role' => $this->input->post('email'),
+							'logged_in' => TRUE
+					);
+					$this->session->set_userdata($newdata);
+					redirect('challenge');
+
+
+                }else{ 
+                    $statusMsg = "Your Payment has Failed!"; 
+					$this->session->set_flashdata('error', $statusMsg);
+					redirect('signup');
+                } 
+            }else{ 
+                $statusMsg = "Transaction has been failed!"; 
+				$this->session->set_flashdata('error', $statusMsg);
+				redirect('signup');
+            } 
+        }else{ 
+            $statusMsg = "Charge creation failed! $api_error";  
+			$this->session->set_flashdata('error', $statusMsg);
+			redirect('signup');
+        } 
+
+			//echo $statusMsg;
+			//die();
+        //redirect('/make-stripe-payment', 'refresh');
+    }
+
+
+
+
+
+}

@@ -1,0 +1,169 @@
+<div>
+    <h1>Service Proposal</h1>
+    <div id="multi-step-form-container">
+        <!-- Form Steps / Progress Bar -->
+        <ul class="form-stepper form-stepper-horizontal text-center mx-auto pl-0">
+            <!-- Step 1 -->
+            <li class="form-stepper-active text-center form-stepper-list" step="1">
+                <a class="mx-2">
+                    <span class="form-stepper-circle">
+                        <span>1</span>
+                    </span>
+                    <div class="label">Select Services</div>
+                </a>
+            </li>
+            <!-- Step 2 -->
+            <li class="form-stepper-unfinished text-center form-stepper-list" step="2">
+                <a class="mx-2">
+                    <span class="form-stepper-circle text-muted">
+                        <span>2</span>
+                    </span>
+                    <div class="label text-muted">Confirm Details</div>
+                </a>
+            </li>
+            <!-- Step 3 -->
+            <li class="form-stepper-unfinished text-center form-stepper-list" step="3">
+                <a class="mx-2">
+                    <span class="form-stepper-circle text-muted">
+                        <span>3</span>
+                    </span>
+                    <div class="label text-muted">Terms & Conditions</div>
+                </a>
+            </li>
+
+            <li class="form-stepper-unfinished text-center form-stepper-list" step="4">
+                <a class="mx-2">
+                    <span class="form-stepper-circle text-muted">
+                        <span>3</span>
+                    </span>
+                    <div class="label text-muted">Order Summary</div>
+                </a>
+            </li>
+
+          
+
+        </ul>
+        <!-- Step Wise Form Content -->
+        <form id="userAccountSetupForm" name="userAccountSetupForm" enctype="multipart/form-data" method="POST">
+            <!-- Step 1 Content -->
+            <section id="step-1" class="form-step">
+                <h2 class="font-normal">SERVICES PROPOSAL</h2>
+                <!-- Step 1 input fields -->
+                <div class="mt-3">
+                    <p>Customer No.	<?php echo $proposal->customer_no;?></p>
+                    <p>Name	<?php echo $proposal->customer_name;?></p>
+                    <p>Contact	<?php echo $proposal->phone;?></p>
+                    <p>Email	<?php echo $proposal->email;?></p>
+                    <p>Service Address	<?php echo $proposal->address;?></p>
+                    <p><?php echo $proposal->street_address;?> <?php echo $proposal->street_address2;?> <?php echo $proposal->city;?> <?php echo $proposal->zip_code;?></p>
+                    <p>Lawn Size <?php echo $proposal->lawn_size;?> sqft (estimated)</p>
+                    <p>Access</p>
+                    <p>Do you have a locked gate?			Gate code <input type="text" name="locked_gate"></p>
+                    <p>Do live in gated community?		Gate code <input type="text" name="gated_community"></p>
+                    
+
+
+                    
+                    <div class="mt-3">
+                        <p>Special Instruction <textarea id="w3review" name="w3review" rows="4" cols="50"></textarea></p>
+                    </div>
+
+                </div>
+                <div class="mt-3">
+                    <button class="button btn-navigate-form-step" type="button" step_number="2">Next</button>
+                </div>
+            </section>
+            <!-- Step 2 Content, default hidden on page load. -->
+            <section id="step-2" class="form-step d-none">
+                <h2 class="font-normal">Social Profiles</h2>
+                <!-- Step 2 input fields -->
+                <div class="mt-3">
+                    <?php if(!empty($proposalAdditional)){
+                        foreach($proposalAdditional as $proposalAdd){
+                        if($proposalAdd->service_type == 'core_services'){
+                            $serviceData = $this->Common_model->getSingle('core_services',array('id' => $proposalAdd->service_id));   
+                        }
+                        elseif($proposalAdd->service_type == 'outdoor_pest_controls'){
+                            $serviceData = $this->Common_model->getSingle('outdoor_pest_controls',array('id' => $proposalAdd->service_id));   
+                        }
+                        else{
+                            $serviceData = $this->Common_model->getSingle('individual_services',array('id' => $proposalAdd->service_id));   
+                        }
+                        
+                        ?>
+                       <div class="mt-3">
+                        <p>
+                        <?php if($proposalAdd->individual_discount != null){
+                                $indDiscount = $this->Common_model->getSingle('individual_discount',array('id' => $proposalAdd->individual_discount));
+                                if($indDiscount->percentage !=  null){?>
+                                   <p><?php echo $indDiscount->discount_name.' '.$indDiscount->percentage.' % Discount Applied';?></p>
+                                <?php }
+                                else{?>
+                                   <p><?php echo $indDiscount->discount_name.' $'.$indDiscount->percentage.' Discount Applied';?></p>
+                                <?php }
+                                
+                         } ?>
+
+                         <?php if($proposalAdd->discount != null){
+                                $discountApplied = $this->Common_model->getSingle('discount',array('id' => $proposalAdd->discount));
+                                if(!empty($discountApplied->percentage)){?>
+                                   <p><?php echo $discountApplied->discount_name.' '.$discountApplied->percentage.' % Discount Applied';?></p>
+                                <?php }
+                              
+                                
+                         } ?>
+                         	
+                        <?php echo $serviceData->service_name;?> 
+                            Enroll <input class="form-check-input" type="checkbox" id="mySwitch" name="darkmode" value="yes" checked>
+                            <label class="form-check-label" for="mySwitch">Yes</label> 
+                        </p>
+                       </div>
+                    <?php } } ?>
+                </div>
+                <div class="mt-3">
+                    <button class="button btn-navigate-form-step" type="button" step_number="1">Prev</button>
+                    <button class="button btn-navigate-form-step" type="button" step_number="3">Next</button>
+                </div>
+            </section>
+            <!-- Step 3 Content, default hidden on page load. -->
+            <section id="step-3" class="form-step d-none">
+                <!-- <h2 class="font-normal">Personal Details</h2> -->
+                <!-- Step 3 input fields -->
+                <div class="mt-3">
+                    <p>We want you to know some important information with regards to the services:</p>
+                    <p><input type="checkbox" name="term[]" > 	Lawn Doctor as any other lawn care service companies, work on route basis and does not work on appointment basis. We can meet your request on best effort basis.</p>
+                   <p> <input type="checkbox" name="term[]" > 	Our service may get rescheduled or postponed due to weather conditions and other factors, but we will keep you informed on the changes.</p>
+                   <p> <input type="checkbox" name="term[]" > 	You can cancel the service(s) for any reason without penalty at any time before we perform the service. Any unused credit balance, if any, will be refunded within 5-business days.</p>
+                    <p><input type="checkbox" name="term[]" > 	Our program services are scheduled continuously and renews year to year until you inform us of the cancellation via email, telephone, or web request.</p>
+                    <p><input type="checkbox" name="term[]" > 	Under our satisfaction guarantee, if you are not satisfied with our service, please let us know within 14-days of our application. We will either return and reapply that application at no additional charge or refund the full cost of your last application.</p>
+                    <p><input type="checkbox" name="term[]" > 	Understand that the results of the application may vary due to external factors such as history of the lawn, weather, soil condition, watering and mowing practices, local area seasonal diseases and insect pressureamong others.</p>
+                    <p><input type="checkbox" name="term[]" > 	I have read and understand the service terms and conditions.</p>
+                </div>
+                <div class="mt-3">
+                    <button class="button btn-navigate-form-step" type="button" step_number="2">Prev</button>
+                    <button class="button btn-navigate-form-step" type="button" step_number="4">Next</button>
+                </div>
+            </section>
+
+            <section id="step-4" class="form-step">
+                <h2 class="font-normal">PAYMENT OPTION</h2>
+                <!-- Step 3 input fields -->
+                <div class="mt-3">
+                    Prepayment for 2023
+                </div>
+                <div id="content">
+                        <div id="signatureparent">
+                        Signature 
+                        <div id="signature"></div>
+                        </div>
+                    </div>
+               
+                <div class="mt-3">
+                    <button class="button btn-navigate-form-step" type="button" step_number="2">Prev</button>
+                    <button class="button submit-btn" type="submit">Save</button>
+                </div>
+            </section>
+
+        </form>
+    </div>
+</div>

@@ -1,0 +1,55 @@
+
+<div class="stap_top__wrapper">
+  <form id="msform" method="post" action="<?php echo site_url(); ?>/admin/faq/edit" enctype="multipart/form-data">
+    <fieldset class="custom-field">
+      <div class="card das_warp">
+        <div class="card-body">
+         <!--  <a href="<?php echo site_url(); ?>/admin/mental-management" class="ar_row"><img src="<?php echo base_url();?>public/assets/img/arrow.jpg"></a> -->
+          <h2 class="efri-text">Edit Faq</h2>
+          <div class="content-pages-inner">
+                      <div class="drillviewSec">
+                          <div class="settingsSec">
+
+                            <?php if($this->session->flashdata('success')){?>
+
+                              <div class="alert alert-success">
+                              <?php echo $this->session->flashdata('success');?>
+                            </div>
+
+
+                            <?php } ?>
+                            
+
+
+                             <?php 
+                              $attributes = array('id' => 'formSettings');
+                              echo form_open('promo-code/edit', $attributes);
+
+                              ?>
+                                  
+                                 
+                                
+                                   
+                                    <div class="form-group">
+                                      <label>Title</label>
+                                      <input type="text" class="form-control" name="title" value="<?php echo $mental->title; ?>" />
+                                    </div>
+                                     <div class="form-group">
+                                      <label>Content</label>
+                                      <input type="text" class="form-control" name="content" value="<?php echo $mental->content; ?>" />
+                                      
+                                    </div>
+                                    
+
+                                  
+                                <input type="hidden" name="id" value="<?php echo $mental->id; ?>">
+                                  <button type="submit" class="btn btn-primary action-button" data-toggle="modal" data-target="#exampleModal">Submit</button>
+                              </form>
+                          </div>
+                      </div>
+          </div>
+        </div>
+      </div>                   
+    </fieldset>
+  </form>
+</div>

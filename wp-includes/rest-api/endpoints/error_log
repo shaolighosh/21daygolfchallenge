@@ -1,0 +1,20 @@
+[28-Nov-2022 21:39:57 America/Boise] PHP Fatal error:  Uncaught Error: Class 'WP_REST_Controller' not found in /home2/myevesf4/public_html/golfersu/wp-includes/rest-api/endpoints/class-wp-rest-revisions-controller.php:17
+Stack trace:
+#0 {main}
+  thrown in /home2/myevesf4/public_html/golfersu/wp-includes/rest-api/endpoints/class-wp-rest-revisions-controller.php on line 17
+[28-Nov-2022 21:41:35 America/Boise] PHP Fatal error:  Uncaught Error: Class 'WP_REST_Controller' not found in /home2/myevesf4/public_html/golfersu/wp-includes/rest-api/endpoints/class-wp-rest-settings-controller.php:17
+Stack trace:
+#0 {main}
+  thrown in /home2/myevesf4/public_html/golfersu/wp-includes/rest-api/endpoints/class-wp-rest-settings-controller.php on line 17
+[01-Dec-2022 02:05:13 America/Boise] PHP Fatal error:  Uncaught Error: Class 'WP_REST_Controller' not found in /home2/myevesf4/public_html/golfersu/wp-includes/rest-api/endpoints/class-wp-rest-settings-controller.php:17
+Stack trace:
+#0 {main}
+  thrown in /home2/myevesf4/public_html/golfersu/wp-includes/rest-api/endpoints/class-wp-rest-settings-controller.php on line 17
+[01-Dec-2022 02:08:42 America/Boise] PHP Fatal error:  Uncaught Error: Class 'WP_REST_Controller' not found in /home2/myevesf4/public_html/golfersu/wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:17
+Stack trace:
+#0 {main}
+  thrown in /home2/myevesf4/public_html/golfersu/wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php on line 17
+[01-Dec-2022 02:10:35 America/Boise] PHP Fatal error:  Uncaught Error: Class 'WP_REST_Controller' not found in /home2/myevesf4/public_html/golfersu/wp-includes/rest-api/endpoints/class-wp-rest-revisions-controller.php:17
+Stack trace:
+#0 {main}
+  thrown in /home2/myevesf4/public_html/golfersu/wp-includes/rest-api/endpoints/class-wp-rest-revisions-controller.php on line 17

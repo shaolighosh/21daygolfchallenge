@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="">
+      <meta name="author" content="">
+      <title>Days Golf Challenge</title>
+      <link rel="icon" href="<?php echo base_url();?>public/assets/img/favicon.png" type="image/x-icon">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link href="<?php echo base_url();?>public/assets/css/bootstrap.min.css" rel="stylesheet">
+      <link rel="stylesheet" href="<?php echo base_url();?>public/assets/css/slick.css">
+      <link rel="stylesheet" href="<?php echo base_url();?>public/assets/css/style-dashborad.css">
+      
+      <!-- <script src="<?php echo base_url();?>public/assets/js/checkout.js" defer></script> -->
+   </head>
+   <body>
+    <header class="page-header">
+      <div class="container-header">
+          <div class="header-wrap">
+              <div class="logo">
+                  <a href="index.html"><img src="<?php echo base_url();?>public/assets/img/logo.png" alt="Keyhouse" class="img-responsive"></a>
+              </div>
+              <div class="header-right">
+                  <nav class="nav-primary">
+                      <ul>                                     
+                      <li class="active"><a href="https://developer.marketingplatform.ca/GolfersU/" target="_blank">Home</a></li>
+                    <!--<li><a href="#">Products</a> 
+                      <ul class="nav-dropdown"> 
+                        <li> <a href="#">Solar</a></li>
+                        <li> <a href="#">Roofing</a></li>
+                        <li> <a href="#">Painting</a></li>
+                        <li> <a href="#">Windows</a></li>
+                        <li> <a href="#">Landscaping</a></li>
+                        <li> <a href="#">Patio Covers</a></li>
+                      </ul>
+                    </li>-->
+                    <li><a href="#">About</a></li> 
+                    <li><a href="#">Program</a> </li>
+                      <li><a href="#">Testimonials</a> </li>
+                      <li><a href="#">Sponsors</a> </li>
+                      <li><a href="#">Contact Us</a> </li>
+                      
+                      </ul>
+                  </nav>
+                  <div class="header-right__button">
+                    <ul>
+                        <li><a href="#"><img src="<?php echo base_url();?>public/assets/img/login-icon.png" alt=""> Login / Register</a></li>
+                        <!-- <li><a href="#"><img src="<?php echo base_url();?>public/assets/img/join-icon.png" alt="">  Join the masterclass</a></li> -->
+                    </ul>
+                  </div>
+                  
+                  <div class="toggle-menu hidden-lg">
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                  </div>
+              </div>
+          </div>
+      </div>
+    </header>
+
+<?php echo $content;?>
+
+ <footer>
+        <div class="footer-bg"><img src="<?php echo base_url();?>public/assets/img/footer-bg.png" alt=""></div>
+        <div class="container">
+            <div class="footer-wrapper">
+                <div class="footer-info">
+                    <img src="<?php echo base_url();?>public/assets/img/footer-logo.png" alt="">
+                    <p>
+                        Magna etiam tempor orci eu lobortis. A cras semper auctor neque. Porta lorem mollis aliquam ut porttitor leo. Amet tellus cras adipiscing enim. Congue mauris rhoncus aenean vel. Quis imperdiet massa tincidunt nunc pulvinar.<br><br>
+                        Venenatis tellus in metus vulputate eu. Augue neque gravida in fermentum et. Amet mattis vulputate enim nulla aliquet porttitor.
+                    </p>
+                </div>
+                <div class="footer-right">
+                    <div class="footer-link">
+                        <h3>Let Us Help You</h3>
+                        <ul>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Contact Us</a></li>
+                            <li><a href="#">Cookie Policy</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Terms & Conditions</a></li>
+                            <li><a href="#">User Terms</a></li>
+                            <li><a href="#">FAQs</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-link">
+                        <h3>Useful Info</h3>
+                        <ul>
+                            <li><a href="#">Join the Masterclass</a>
+                            <li><a href="#">Visit Our Partners</a>
+                            <li><a href="#">Update Account</a>
+    
+                        </ul>
+                    </div>
+                    <div class="footer-link">
+                        <h3>Download App</h3>
+                        <div class="app_img"><img src="<?php echo base_url();?>public/assets/img/gooapp.png" alt=""></div>
+                        <div class="app_img"><img src="<?php echo base_url();?>public/assets/img/Appstore.png" alt=""></div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; logohere 2023 - All Rights Reserved
+            </div>
+        </div>
+
+    </footer>
+
+
+    
+    
+
+    
+      <script src="<?php echo base_url();?>public/assets/js/jquery.min.js"></script>
+      <script src="<?php echo base_url();?>public/assets/js/bootstrap.min.js"></script>
+      <script src="<?php echo base_url();?>public/assets/js/slick.min.js"></script>
+      <script src="<?php echo base_url();?>public/assets/js/custom.js"></script>
+      <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/additional-methods.min.js"></script>
+     
+<script type="text/javascript">
+$("#payment-form").validate({
+
+    
+      rules: {
+        card_number:{
+            required: true,
+            number: true
+        },
+        first_name: {
+            required: true,
+        },
+         last_name: {
+            required: true,
+        },
+        
+         user_name: {
+            required: true,
+            remote: "<?php echo site_url();?>/ajax/userName"
+        },
+         email: {
+            required: true,
+            email:true,
+            remote: "<?php echo site_url();?>/ajax/emailCheck"
+        },
+        password: {
+            required: true,
+            //strong_password:true,
+        },
+      },
+      messages: {
+            first_name: {
+                required: "Please Enter First Name",
+            },
+            last_name: {
+                required: "Please Enter Last Name",
+            },
+            
+            user_name: {
+                required: "Please Enter User Name",
+                remote:"User Name alredy exists."
+            },
+            email: {
+                required: "Please Enter Email Address",
+                email:"Please Enter valid Email Address",
+                remote:"Email alredy exists."
+            },
+            password: {
+                required: "Please Enter Password",
+            },
+            
+         }
+      
+});
+$(function() {
+
+    $(".couponDiv").click( function () {
+        $('.cou_pon').toggle();
+
+    });
+
+    $(".removeCoupon").click( function () {
+        $('input[name="applied_discount"]').val();
+        $('.changeAmount').html('$'+<?php echo class_amount;?>);
+        $('input[name="coupon_code"]').val(''); 
+        $('.couponAppliedText').html('');
+        $('.couponApplied').hide();
+        $('.cou_pon').show();
+    });
+    
+    $(".applyCoupon").click( function () {
+        //alert($('input[name="coupon_code"]').val());
+         var checkCpoupon = $('input[name="coupon_code"]').val();   
+         $.ajax({
+                  type: 'POST',
+                  url: "<?php echo site_url();?>/ajax/promo_check",
+                  data: {
+                        coupon_code:$('input[name="coupon_code"]').val(),
+                  },
+                  success: function(resultData) { 
+                        var result = JSON.parse(resultData);
+                        
+                        if(result.success == true){
+                           // alert("sss"+result.amount);
+                            $('input[name="applied_discount"]').val(result.id);
+                            $('.changeAmount').html('$'+result.amount);
+                            $('.couponAppliedText').html(checkCpoupon);
+                            $('.couponApplied').show();
+                            $('.cou_pon').hide();
+                        }
+                        else{
+                           // alert("ddddd"+result.success);
+                            $('input[name="applied_discount"]').val();
+                        }
+                  }
+            });
+    });
+    
+    var $form         = $(".require-validation");
+  $('form.require-validation').bind('submit', function(e) {
+    var $form         = $(".require-validation"),
+        inputSelector = ['input[type=email]', 'input[type=password]',
+                         'input[type=text]', 'input[type=file]',
+                         'textarea'].join(', '),
+        $inputs       = $form.find('.required').find(inputSelector),
+        $errorMessage = $form.find('div.error'),
+        valid         = true;
+        $errorMessage.addClass('hide');
+ 
+        $('.has-error').removeClass('has-error');
+    $inputs.each(function(i, el) {
+      var $input = $(el);
+      if ($input.val() === '') {
+        $input.parent().addClass('has-error');
+        $errorMessage.removeClass('hide');
+        e.preventDefault();
+      }
+    });
+     
+    if (!$form.data('cc-on-file')) {
+      e.preventDefault();
+      Stripe.setPublishableKey($form.data('stripe-publishable-key'));
+
+    //   alert($form.data('stripe-publishable-key'));
+    //   alert($('.card-number-new').val());
+      Stripe.createToken({
+        number: $('.card-number-new').val(),
+        cvc: $('.card-cvc').val(),
+        exp_month: $('.card-expiry-month option:selected').val(),
+        exp_year: $('.card-expiry-year option:selected').val()
+      }, stripeResponseHandler);
+    }
+    
+  });
+      
+  function stripeResponseHandler(status, response) {
+    
+        
+        if (response.error) {
+            //alert("dddddddddd");
+            $('.errorHide').show();
+            $('.errorHide')
+                .removeClass('hide')
+                .find('.alert')
+                .text(response.error.message);
+        } else {
+            console.log("ooooooooooo ",response);
+            var token = response['id'];
+            $form.find('input[type=text]').empty();
+            $form.append("<input type='hidden' name='stripeToken' value='" + token + "'/>");
+            $form.get(0).submit();
+        }
+        
+    }
+     
+});
+</script>
+   </body>
+</html>

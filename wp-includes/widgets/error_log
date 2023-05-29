@@ -1,0 +1,8 @@
+[28-Nov-2022 21:47:08 America/Boise] PHP Fatal error:  Uncaught Error: Class 'WP_Widget' not found in /home2/myevesf4/public_html/golfersu/wp-includes/widgets/class-wp-widget-tag-cloud.php:17
+Stack trace:
+#0 {main}
+  thrown in /home2/myevesf4/public_html/golfersu/wp-includes/widgets/class-wp-widget-tag-cloud.php on line 17
+[01-Dec-2022 02:09:45 America/Boise] PHP Fatal error:  Uncaught Error: Class 'WP_Widget' not found in /home2/myevesf4/public_html/golfersu/wp-includes/widgets/class-wp-widget-tag-cloud.php:17
+Stack trace:
+#0 {main}
+  thrown in /home2/myevesf4/public_html/golfersu/wp-includes/widgets/class-wp-widget-tag-cloud.php on line 17

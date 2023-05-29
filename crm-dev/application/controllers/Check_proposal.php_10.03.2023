@@ -1,0 +1,92 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+
+class Check_proposal extends CI_Controller {
+
+	/**
+	 * Index Page for this controller.
+	 *
+	 * Maps to the following URL
+	 * 		http://example.com/index.php/welcome
+	 *	- or -
+	 * 		http://example.com/index.php/welcome/index
+	 *	- or -
+	 * Since this controller is set as the default controller in
+	 * config/routes.php, it's displayed at http://example.com/
+	 *
+	 * So any other public methods not prefixed with an underscore will
+	 * map to /index.php/welcome/<method_name>
+	 * @see https://codeigniter.com/user_guide/general/urls.html
+	 */
+
+	public function __construct(){
+		parent::__construct();
+		$this->load->helper('url');
+		$this->load->helper('form');
+		//$this->load->library('session');
+		$this->load->database();
+		$this->load->model(array('Common_model'));
+		$this->load->library('user_agent');
+		$this->table_login_data = 'user'; 
+		$this->load->library('user_agent');
+		$this->load->helper("url");
+       	$this->load->library("pagination");
+
+       
+      }
+
+	/* admin login */
+	public function index()
+	{
+
+        $id = $this->uri->segment(2);
+        $rows = $this->Common_model->numrows('proposals',array('id' => $id));
+        if($rows >  0){
+
+            $allData["proposal"] = $this->Common_model->getSingle('proposals',array('id' => $id));
+            $allData["proposalAdditional"] = $this->Common_model->getAllData('proposal_additional',array('proposal_id' => $id));
+            
+            $coreService = [];
+            $outdoorPetService = [];
+            $individualService = [];
+
+            if(!empty($allData["proposalAdditional"])){
+                foreach($allData["proposalAdditional"] as $proposalAdditional){
+                    if($proposalAdditional->service_type == 'core_services'){
+                        array_push($coreService,$proposalAdditional->service_id);
+                    }
+
+                    if($proposalAdditional->service_type == 'outdoor_pest_controls'){
+                        array_push($outdoorPetService,$proposalAdditional->service_id);
+                    }
+
+                    if($proposalAdditional->service_type == 'individual_services'){
+                        array_push($individualService,$proposalAdditional->service_id);
+                    }
+                    
+                }
+            }
+            
+            $allData["coreService"] = $coreService;
+            $allData["outdoorPetService"] = $outdoorPetService;
+            $allData["individualService"] = $individualService;
+            
+            $allData["discount"] = $this->Common_model->getValueall('discount');
+            $allData["individual_discount"] = $this->Common_model->getValueall('individual_discount');
+            $allData["individual_services"] = $this->Common_model->getValueall('individual_services');
+            $allData["services"] = $this->Common_model->getValueall('core_services');
+            $allData["service_optionals"] = $this->Common_model->getValueall('core_optional_services');
+            $allData["outdoor_pest_controls"] = $this->Common_model->getValueall('outdoor_pest_controls');
+            $allData["outdoor_pest_optional_controls"] = $this->Common_model->getValueall('outdoor_pest_optional_controls');
+            $data['content'] = $this->load->view('site/proposal/user-proposal',$allData, true);
+            $this->load->view('template/site/main-new',$data);
+        }
+        else{
+            redirect("login");
+        }
+        
+
+		
+	}
+
+}

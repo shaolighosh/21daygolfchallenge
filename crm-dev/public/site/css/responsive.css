@@ -1,0 +1,166 @@
+@media (max-width : 1920px) {}
+
+@media (min-width : 1680px) {
+
+
+}
+@media (max-width : 1680px) {
+
+  
+}
+
+@media (max-width : 1439px) {
+  
+      /*Business dashboard*/
+    .dashboard-color-cards .right-text{ padding-right: 0;}
+    
+
+}
+@media (max-width : 1366px) {
+
+
+}
+@media (max-width : 1339px) {
+
+  
+
+
+}
+@media (max-width : 1199px) {
+
+    
+    /*----1 landing page css----*/    
+    .landing-page-branding{max-width: 65%;}
+    .indv-srvyr-lgn, .cmpny-srvyr-lgn{padding-left: 80px;}
+    
+    
+    
+}
+
+
+
+
+
+
+@media (min-width : 992px) {
+  
+    .top-right-navbar-toggler{ display: none;}
+    .top-right-navbar .navbar-nav{flex-direction: inherit;}
+    .top-right-navbar{ display: block; flex-basis: auto;}
+    
+    
+    
+    
+}
+
+
+
+
+
+
+@media (max-width : 991px) {
+    
+   /*---top nav css---*/  
+   header.header .navbar{ padding-left:15px; padding-right:15px}
+   .navbar-collapse{ margin-top:15px;}
+   .navbar-collapse .nav { padding:20px 0; background:#fff; }
+   .navbar-collapse .right-nav.nav{ padding-top:0; background:#fff;}
+   header.header .navbar-brand img{ max-height:30px; }
+   .navbar-toggler{padding: .15rem .25rem;}
+   nav.navbar .navbar-nav{ display: block;}
+   nav.navbar .navbar-nav .nav-item{ line-height:25px; display: inline-block;}
+   nav.navbar .navbar-nav .nav-item.dropdown .nav-link:after{ right:0;}
+    
+    .header .navbar-light .navbar-nav .nav-link{ }
+    
+    
+     /*---top nav css---*/  
+    .sidebar{ width: 40px; overflow: hidden;}
+    .sidebar li a i {width: 24px; text-align: center;}
+    .sidebar.fliph{ width: 260px;}
+    .sidebar.fliph li a .nav-label, .sidebar.fliph li a .nav-label+span{ display: inline-block; opacity: 1;}
+    .sidebar.fliph .sub-menu{ position: inherit;left: 0; width: 100%; z-index: 0;}
+    
+    
+   /*----1 landing page css----*/ 
+    .indv-srvyr-lgn, .cmpny-srvyr-lgn {padding-left: 30px;}
+    .ln1{font-size: 25px;}
+    .ln2{font-size: 25px;}
+  
+}
+
+
+
+
+@media (max-width : 767px) {
+
+
+    
+    /*top nav*/
+    .navbar-nav .dropdown-menu{ box-shadow: none;}
+    header .dropdown-menu a{font-weight: normal; font-size: 12px;padding: 0 10px;}
+    
+    
+    
+    /*sidebar css*/
+    .left-sidebar-fixed{ padding: 0;}
+    .left-sidebar-wrap{ min-height: inherit; width: 100%;}
+    .left-sidebar-wrap .navbar-header{ margin: 0 auto; display: block;}
+    .left-sidebar-wrap .navbar-toggle{ width: 40px; height: 35px; background-image: url(../images/mobile-menu.png); background-repeat: no-repeat; background-color: #fff; border: 1px solid rgba(0,0,0,.1);border-radius: 5px; background-position: 6px center;}
+    .left-sidebar-fixed .navbar-ex1-collapse{ display: none;}
+    .left-sidebar-fixed .navbar-ex1-collapse.show{ display: block;}
+    
+    
+    .sidebar .search-form .input-box{width: 100%; margin-right: 0;height: auto;}
+    
+   
+    
+    
+     /*----1 landing page css----*/ 
+    .landing-page-branding {max-width: 90%;}
+    .logintype-wrap {padding-top: 28vh;}
+    .indv-srvyr-lgn, .cmpny-srvyr-lgn {padding-left: 15px; text-align: center;}
+    .indv-srvyr-lgn {border-right: none; border-bottom: 1px solid #e6e6e6;}
+    .ln2{ min-height: inherit;}
+    
+    
+
+}
+
+
+
+@media (max-width : 576px) {
+    
+    
+    /*table comon css*/
+    table.table{ min-width: 600px;} 
+    
+    
+ 
+    /*----1 landing page css----*/ 
+    .landing-page-branding {max-width: 98%;}
+    .landing-page-branding img{ max-width: 200px;}
+    .logintype-wrap {padding-top: 20vh;}
+    
+    
+    
+    
+    /*----4 dashboard page css----*/     
+    .date-wise-search-inner{ flex-wrap: wrap; }
+    .date-wise-search-inner label{ margin-bottom: 10px;}
+    .date-picker{ padding-left: 0; margin-bottom: 10px;}
+    .search-btn{ margin-left: 0;}
+    
+    
+    .dashboard-cards{ flex-wrap: wrap;}
+    .dashboard-cards h2{ padding: 0; width: 100%; text-align: center;}
+    .dashboard-cards-r{ width: 100%;}
+    .dashboard-cards h4{ text-align: center; width: 100%;}
+    .dashboard-cards h4 br{ display: none; width: 100%; }
+    .dashboard-cards .click-here{ text-align: center;}
+    
+    
+
+}
+
+

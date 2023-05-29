@@ -1,0 +1,41 @@
+<div class="container">
+<div class="row">
+    <div class="col-md-12">
+        <div class="wrapper wrapper-content animated fadeInRight">
+
+            <div class="ibox-content m-b-sm border-bottom">
+                <div class="text-center p-lg">
+                    <h2>FAQ</h2>
+                    
+                </div>
+            </div>
+            <?php if(!empty($faqs)){
+                $i = 0;
+                foreach ($faqs as $faq) {
+                 ?>
+            <div class="faq-item">
+                <div class="row">
+                    <div class="col-md-7">
+                        <a data-toggle="collapse" href="#faq<?php echo $i;?>" class="faq-question"><?php echo $faq->title;?></a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div id="faq<?php echo $i;?>" class="panel-collapse collapse ">
+                            <div class="faq-answer">
+                                <p>
+                                   <?php echo $faq->content;?>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <?php $i++; } } ?>
+           
+        </div>
+    </div>
+</div>
+</div>

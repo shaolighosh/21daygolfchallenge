@@ -1,0 +1,65 @@
+2023-04-24T00:50:57+00:00 CRITICAL Uncaught Error: Call to a member function get_total() on null in /home2/myevesf4/public_html/golfersu/wp-content/themes/rehub-theme/inc/header_layout/header_five.php:134
+Stack trace:
+#0 /home2/myevesf4/public_html/golfersu/wp-content/themes/rehub-theme/header.php(90): include()
+#1 /home2/myevesf4/public_html/golfersu/wp-includes/template.php(770): require_once('/home2/myevesf4...')
+#2 /home2/myevesf4/public_html/golfersu/wp-includes/template.php(716): load_template('/home2/myevesf4...', true, Array)
+#3 /home2/myevesf4/public_html/golfersu/wp-includes/general-template.php(48): locate_template(Array, true, true, Array)
+#4 /home2/myevesf4/public_html/golfersu/wp-content/themes/rehub-theme/404.php(2): get_header()
+#5 /home2/myevesf4/public_html/golfersu/wp-includes/template-loader.php(106): include('/home2/myevesf4...')
+#6 /home2/myevesf4/public_html/golfersu/wp-blog-header.php(19): require_once('/home2/myevesf4...')
+#7 /home2/myevesf4/public_html/golfersu/index.php(17): require('/home2/myevesf4...')
+#8 {main}
+   in /home2/myevesf4/public_html/golfersu/wp-content/themes/rehub-theme/inc/header_layout/header_five.php on line 134
+
+2023-04-24T00:51:10+00:00 CRITICAL Uncaught Error: Call to a member function get_total() on null in /home2/myevesf4/public_html/golfersu/wp-content/themes/rehub-theme/inc/header_layout/header_five.php:134
+Stack trace:
+#0 /home2/myevesf4/public_html/golfersu/wp-content/themes/rehub-theme/header.php(90): include()
+#1 /home2/myevesf4/public_html/golfersu/wp-includes/template.php(770): require_once('/home2/myevesf4...')
+#2 /home2/myevesf4/public_html/golfersu/wp-includes/template.php(716): load_template('/home2/myevesf4...', true, Array)
+#3 /home2/myevesf4/public_html/golfersu/wp-includes/general-template.php(48): locate_template(Array, true, true, Array)
+#4 /home2/myevesf4/public_html/golfersu/wp-content/themes/rehub-theme/404.php(2): get_header()
+#5 /home2/myevesf4/public_html/golfersu/wp-includes/template-loader.php(106): include('/home2/myevesf4...')
+#6 /home2/myevesf4/public_html/golfersu/wp-blog-header.php(19): require_once('/home2/myevesf4...')
+#7 /home2/myevesf4/public_html/golfersu/index.php(17): require('/home2/myevesf4...')
+#8 {main}
+   in /home2/myevesf4/public_html/golfersu/wp-content/themes/rehub-theme/inc/header_layout/header_five.php on line 134
+
+2023-04-24T00:51:20+00:00 CRITICAL Uncaught Error: Call to a member function get_total() on null in /home2/myevesf4/public_html/golfersu/wp-content/themes/rehub-theme/inc/header_layout/header_five.php:134
+Stack trace:
+#0 /home2/myevesf4/public_html/golfersu/wp-content/themes/rehub-theme/header.php(90): include()
+#1 /home2/myevesf4/public_html/golfersu/wp-includes/template.php(770): require_once('/home2/myevesf4...')
+#2 /home2/myevesf4/public_html/golfersu/wp-includes/template.php(716): load_template('/home2/myevesf4...', true, Array)
+#3 /home2/myevesf4/public_html/golfersu/wp-includes/general-template.php(48): locate_template(Array, true, true, Array)
+#4 /home2/myevesf4/public_html/golfersu/wp-content/themes/rehub-theme/404.php(2): get_header()
+#5 /home2/myevesf4/public_html/golfersu/wp-includes/template-loader.php(106): include('/home2/myevesf4...')
+#6 /home2/myevesf4/public_html/golfersu/wp-blog-header.php(19): require_once('/home2/myevesf4...')
+#7 /home2/myevesf4/public_html/golfersu/index.php(17): require('/home2/myevesf4...')
+#8 {main}
+   in /home2/myevesf4/public_html/golfersu/wp-content/themes/rehub-theme/inc/header_layout/header_five.php on line 134
+
+2023-04-24T00:51:54+00:00 CRITICAL Uncaught Error: Call to a member function get_total() on null in /home2/myevesf4/public_html/golfersu/wp-content/themes/rehub-theme/inc/header_layout/header_five.php:134
+Stack trace:
+#0 /home2/myevesf4/public_html/golfersu/wp-content/themes/rehub-theme/header.php(90): include()
+#1 /home2/myevesf4/public_html/golfersu/wp-includes/template.php(770): require_once('/home2/myevesf4...')
+#2 /home2/myevesf4/public_html/golfersu/wp-includes/template.php(716): load_template('/home2/myevesf4...', true, Array)
+#3 /home2/myevesf4/public_html/golfersu/wp-includes/general-template.php(48): locate_template(Array, true, true, Array)
+#4 /home2/myevesf4/public_html/golfersu/wp-content/themes/rehub-theme/404.php(2): get_header()
+#5 /home2/myevesf4/public_html/golfersu/wp-includes/template-loader.php(106): include('/home2/myevesf4...')
+#6 /home2/myevesf4/public_html/golfersu/wp-blog-header.php(19): require_once('/home2/myevesf4...')
+#7 /home2/myevesf4/public_html/golfersu/index.php(17): require('/home2/myevesf4...')
+#8 {main}
+   in /home2/myevesf4/public_html/golfersu/wp-content/themes/rehub-theme/inc/header_layout/header_five.php on line 134
+
+2023-04-24T00:52:31+00:00 CRITICAL Uncaught Error: Call to a member function get_total() on null in /home2/myevesf4/public_html/golfersu/wp-content/themes/rehub-theme/inc/header_layout/header_five.php:134
+Stack trace:
+#0 /home2/myevesf4/public_html/golfersu/wp-content/themes/rehub-theme/header.php(90): include()
+#1 /home2/myevesf4/public_html/golfersu/wp-includes/template.php(770): require_once('/home2/myevesf4...')
+#2 /home2/myevesf4/public_html/golfersu/wp-includes/template.php(716): load_template('/home2/myevesf4...', true, Array)
+#3 /home2/myevesf4/public_html/golfersu/wp-includes/general-template.php(48): locate_template(Array, true, true, Array)
+#4 /home2/myevesf4/public_html/golfersu/wp-content/themes/rehub-theme/404.php(2): get_header()
+#5 /home2/myevesf4/public_html/golfersu/wp-includes/template-loader.php(106): include('/home2/myevesf4...')
+#6 /home2/myevesf4/public_html/golfersu/wp-blog-header.php(19): require_once('/home2/myevesf4...')
+#7 /home2/myevesf4/public_html/golfersu/index.php(17): require('/home2/myevesf4...')
+#8 {main}
+   in /home2/myevesf4/public_html/golfersu/wp-content/themes/rehub-theme/inc/header_layout/header_five.php on line 134
+

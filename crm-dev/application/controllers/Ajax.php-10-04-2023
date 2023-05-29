@@ -1,0 +1,724 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+
+class Ajax extends CI_Controller {
+
+	/**
+	 * Index Page for this controller.
+	 *
+	 * Maps to the following URL
+	 * 		http://example.com/index.php/welcome
+	 *	- or -
+	 * 		http://example.com/index.php/welcome/index
+	 *	- or -
+	 * Since this controller is set as the default controller in
+	 * config/routes.php, it's displayed at http://example.com/
+	 *
+	 * So any other public methods not prefixed with an underscore will
+	 * map to /index.php/welcome/<method_name>
+	 * @see https://codeigniter.com/user_guide/general/urls.html
+	 */
+
+	public function __construct(){
+		parent::__construct();
+		$this->load->helper('url');
+		$this->load->helper('form');
+		$this->load->library('session');
+		
+		$this->load->database();
+		$this->load->model(array('Common_model'));
+		$this->load->library('user_agent');
+		$this->table_login_data = 'user'; 
+		$this->load->library('user_agent');
+		$this->table_login_data = 'user';
+      }
+
+	/* admin login */
+	public function index()
+	{
+		
+		if($this->session->userdata('logged_in')){
+			
+			redirect('proposal');
+		}
+		
+		if($this->input->post('email')){
+			
+			$where = array('user_email' => $this->input->post('email'), 'password' => md5($this->input->post('password')) );
+			$rows = $this->Common_model->numrows($this->table_login_data,$where);
+			
+		
+			if($rows > 0){
+				$single = $this->Common_model->getSingle($this->table_login_data,$where);
+				//print_r($single);die();
+				$newdata = array(
+				        'user_id'  => $single->id,
+				        'id'     => $single->id,
+				        'role' => $single->user_email,
+				        'logged_in' => TRUE
+				);
+
+				$this->session->set_userdata($newdata);
+				//print_r($_SESSION);die();
+				redirect('proposal');
+			}else{
+				
+				$this->session->set_flashdata('error', 'Email or password is worng.');
+				redirect('/');
+			}
+		}else{
+			$this->load->view('site/login/login');
+		}
+		
+	}
+	
+
+
+	public function logout()
+	{	
+
+		$this->session->sess_destroy();
+		redirect("login");
+	}
+
+    public function calculate_price(){
+
+        //print_r($_POST);die();
+        if(isset($_POST['checked_service_id'])){
+            $checked_service_id = $_POST['checked_service_id'];
+        }
+        else{
+            $checked_service_id = [];
+        }
+        
+        $response = array("cost" => '',"total_cost" => '');
+        $serviceId =  $_POST['service_id'];
+        
+        //$service_type =  $_POST['service_type'];
+        $service_number_service =  $_POST['service_number_service'];
+        $discount =  $_POST['discount'];
+        $individual_discount =  $_POST['individual_discount'];
+        $serviceData = $this->Common_model->getSingle('core_services',array('id' => $serviceId));
+        if($serviceData->square_foot == 'yes'){
+            $size =  $_POST['size'] * $serviceData->service_min_size;
+        }
+        else{
+            $size =  $_POST['size'];
+        }
+        
+        $unitPrice = 0;
+        $basePrice = 0;
+        //print_r($serviceData);die();
+        if(!empty($serviceData)){
+            if($serviceData->square_foot == 'yes'){
+                if($size <= $serviceData->service_min_size ){
+                    
+                   // $unitPrice = $serviceData->service_min_price;
+                   if($discount != '' || $individual_discount != ''){
+                    
+                        $discountData = '';
+                        $individualData = '';
+                        $total = '';
+                        $fullYear = '';
+                        
+
+                        if($individual_discount != ''){
+                            $individualData = $this->Common_model->getSingle('individual_discount',array('id' => $individual_discount ));
+                            if($individualData->id == 2){
+                                if(in_array($serviceData->related_service_id,$checked_service_id)){
+                                    if($service_number_service != ''){
+                                        $total = ($serviceData->with_service_price - $individualData->amount ) * $service_number_service;
+                                    }
+                                    else{
+                                        $total = 0;
+                                    }
+                                    
+                                    $basePrice = ($serviceData->with_service_price);
+                                    $fullYear = $serviceData->total_service * $basePrice;
+                                    $unitPrice = $serviceData->with_service_price - $individualData->amount;
+                                }
+                                else{
+                                    if($service_number_service != ''){
+                                        $total = ($serviceData->service_min_price - $individualData->amount ) * $service_number_service;
+                                    }
+                                    else{
+                                        $total = '';
+                                    }
+                                    
+                                    $basePrice = ($serviceData->service_min_price);
+                                    $fullYear = $serviceData->total_service * $basePrice;
+                                    $unitPrice = $serviceData->service_min_price - $individualData->amount;
+
+                                }
+                                
+                                //$unitPrice = $serviceData->service_min_price - 
+                                //echo "here". $serviceData->total_service;
+                            }   
+                            else{
+                                if(in_array($serviceData->related_service_id,$checked_service_id)){
+                                    if($service_number_service !=''){
+                                        $total = (($serviceData->with_service_price - (($serviceData->with_service_price * $individualData->percentage) /100 )) * 1) + ($serviceData->with_service_price * ($service_number_service - 1) ) ;
+                                    }
+                                    else{
+                                        $total = '';
+                                    }
+                                    
+                                    $basePrice = ($serviceData->with_service_price );
+                                    $unitPrice = $basePrice;
+                                    $fullYear = $serviceData->total_service * $serviceData->with_service_price;
+
+                                }
+                                else{
+                                    if($service_number_service != ''){
+                                        $total = (($serviceData->service_min_price - (($serviceData->service_min_price * $individualData->percentage) /100 )) * 1) + ($serviceData->service_min_price * ($service_number_service - 1) ) ;
+                                    }
+                                    else{
+                                        $total = '';
+                                    }
+                                    
+                                    $basePrice = ($serviceData->service_min_price );
+                                    $unitPrice = $basePrice;
+                                    $fullYear = $serviceData->total_service * $serviceData->service_min_price;
+                                }
+                               
+                            }
+                            
+                        }
+                        
+                       // echo "basePrice ". $total." unitPrice ".$unitPrice;die();
+                        if($discount != ''){
+                            if($individual_discount != ''){
+                                
+                                $individualData = $this->Common_model->getSingle('individual_discount',array('id' => $individual_discount ));
+                                if($individualData->id == 2){
+
+                                    if(in_array($serviceData->related_service_id,$checked_service_id)){
+                                        if($service_number_service != ''){
+                                            $total = ($serviceData->with_service_price - $individualData->amount ) * $service_number_service;
+                                        }
+                                        else{
+                                            $total = '';
+                                        }
+                                        
+                                        $basePrice = ($serviceData->with_service_price);
+                                        $fullYear = $serviceData->total_service * $basePrice;
+                                        $unitPrice = $serviceData->with_service_price - $individualData->amount;
+                                    }
+                                    else{
+                                        if($service_number_service != ''){
+                                            $total = ($serviceData->service_min_price - $individualData->amount ) * $service_number_service;
+                                        }
+                                        else{
+                                            $total = '';
+                                        }
+                                        
+                                        $basePrice = ($serviceData->service_min_price);
+                                        $fullYear = $serviceData->total_service * $basePrice;
+                                        $unitPrice = $serviceData->service_min_price - $individualData->amount;
+
+                                    }
+                                    
+                                    //$unitPrice = $serviceData->service_min_price - 
+                                    //echo "here". $serviceData->total_service;
+                                }   
+                                else{
+                                    
+                                    if(in_array($serviceData->related_service_id,$checked_service_id)){
+                                        if($service_number_service != ''){
+                                            $total = (($serviceData->with_service_price - (($serviceData->with_service_price * $individualData->percentage) /100 )) * 1) + ($serviceData->with_service_price * ($service_number_service - 1) ) ;
+                                        }
+                                        else{
+                                            $total = '';
+                                        }
+                                        
+                                        $basePrice = ($serviceData->with_service_price );
+                                        $unitPrice = $basePrice;
+                                        $fullYear = $serviceData->total_service * $serviceData->with_service_price;
+
+                                    }
+                                    else{
+                                        if($service_number_service != ''){
+                                            $total = (($serviceData->service_min_price - (($serviceData->service_min_price * $individualData->percentage) /100 )) * 1) + ($serviceData->service_min_price * ($service_number_service - 1) ) ;
+                                        }
+                                        else{
+                                            $total = '';
+                                        }
+                                        
+                                        $basePrice = ($serviceData->service_min_price );
+                                        $unitPrice = $basePrice;
+                                        $fullYear = $serviceData->total_service * $serviceData->service_min_price;
+                                    }
+                                    
+                                }
+
+                                $discountData = $this->Common_model->getSingle('discount',array('id' => $discount ));
+                                $unitPrice = $unitPrice - (($unitPrice * $discountData->percentage)/100); 
+                              // echo  $basePrice = $basePrice;die();
+                                if($service_number_service != ''){
+                                    $total = $unitPrice * $service_number_service;
+                                }
+                                else{
+                                    $total = '';
+                                }
+                                
+                                $fullYear = $serviceData->total_service *  $unitPrice;
+
+                               
+                                
+
+                            }
+                            else{
+                                if(in_array($serviceData->related_service_id,$checked_service_id)){
+                                    $discountData = $this->Common_model->getSingle('discount',array('id' => $discount ));
+                                    $total = ($serviceData->with_service_price - (($serviceData->with_service_price * $discountData->percentage)/100)) * $service_number_service;
+                                    $basePrice = ($serviceData->with_service_price);
+                                    $fullYear = $serviceData->total_service * ($serviceData->with_service_price - (($serviceData->with_service_price * $discountData->percentage)/100));
+                                    $unitPrice = $serviceData->with_service_price - (($serviceData->with_service_price * $discountData->percentage)/100);
+                                }
+                                else{
+                                    $discountData = $this->Common_model->getSingle('discount',array('id' => $discount ));
+                                    $total = ($serviceData->service_min_price - (($serviceData->service_min_price * $discountData->percentage)/100)) * $service_number_service;
+                                    $basePrice = ($serviceData->service_min_price);
+                                    $fullYear = $serviceData->total_service * ($serviceData->service_min_price - (($serviceData->service_min_price * $discountData->percentage)/100));
+                                    $unitPrice = $serviceData->service_min_price - (($serviceData->service_min_price * $discountData->percentage)/100);
+
+                                }
+                                
+                               // echo $unitPrice; die();
+
+                            }
+                           // echo "THere";
+                            $discountData = $this->Common_model->getSingle('discount',array('id' => $discount ));
+
+                        }
+
+                        
+                       // echo "here";
+                        $response = array("system_price_unit" =>$unitPrice,"cost" => $basePrice,"total_cost" => $total,'full_year' => $fullYear,'total_service' => $serviceData->total_service);
+                        echo json_encode($response);
+                        return;
+                    }
+                    else{
+
+                        if(in_array($serviceData->related_service_id,$checked_service_id)){
+
+                            $total = $serviceData->with_service_price * $service_number_service;
+                            $basePrice = ($serviceData->with_service_price);
+                            $fullYear = $serviceData->total_service * $serviceData->with_service_price;
+                            $unitPrice = $serviceData->with_service_price;
+
+                        }
+                        else{
+                            if($service_number_service != ''){
+                                $total = $serviceData->service_min_price * $service_number_service;
+                            }
+                            else{
+                                $total = '';
+                            }
+                            
+                            $basePrice = ($serviceData->service_min_price);
+                            $fullYear = $serviceData->total_service * $serviceData->service_min_price;
+                            $unitPrice = $serviceData->service_min_price;
+
+                        }
+                        
+                        $response = array("system_price_unit" =>$unitPrice,"cost" => $basePrice,"total_cost" => $total,'full_year' => $fullYear,'total_service' => $serviceData->total_service,'total_service' => $serviceData->total_service);
+                        echo json_encode($response);
+                        return;
+                    }
+                    
+                }
+                else{
+
+                    
+                    
+                    if(in_array($serviceData->related_service_id,$checked_service_id)){
+                        $newBasePrice = $serviceData->with_service_price + ((($size - $serviceData->service_min_size)/ $serviceData->service_incremental) * $serviceData->service_incremental_price);
+                    }
+                    else{
+                        $newBasePrice = $serviceData->service_min_price + ((($size - $serviceData->service_min_size)/ $serviceData->service_incremental) * $serviceData->service_incremental_price);
+                    }
+                   
+
+                   // die();
+                    
+                    if($discount != '' || $individual_discount != ''){
+                        $discountData = '';
+                        $individualData = '';
+                        
+
+                        if($individual_discount != ''){
+                            $individualData = $this->Common_model->getSingle('individual_discount',array('id' => $individual_discount ));
+                            if($individualData->id == 2){
+                                if(in_array($serviceData->related_service_id,$checked_service_id)){
+                                    if($service_number_service != ''){
+                                        $total = ($newBasePrice - $individualData->amount ) * $service_number_service;
+                                    }
+                                    else{
+                                        $total = '';
+                                    }
+                                    
+                                    $basePrice = ($newBasePrice - $individualData->amount );
+                                    $fullYear = $serviceData->total_service * $basePrice;
+                                    $unitPrice = $newBasePrice;
+                                }
+                                else{
+
+                                    if($service_number_service != ''){
+                                        $total = ($newBasePrice - $individualData->amount ) * $service_number_service;
+                                    }
+                                    else{
+                                        $total = '';
+                                    }
+                                    
+                                    $basePrice = ($newBasePrice - $individualData->amount );
+                                    $fullYear = $serviceData->total_service * $basePrice;
+                                    $unitPrice = $newBasePrice;
+                                }
+                                
+                                //echo "here". $serviceData->total_service;
+                            }   
+                            else{
+                                if(in_array($serviceData->related_service_id,$checked_service_id)){
+                                    if($service_number_service != ''){
+                                        $total = (($newBasePrice - (($newBasePrice * $individualData->percentage) /100 )) * 1) + ($newBasePrice * ($service_number_service - 1) ) ;
+                                    }
+                                    else{
+                                        $total = '';
+                                    }
+                                    
+                                    $basePrice = ($newBasePrice );
+                                    $fullYear = $serviceData->total_service * $newBasePrice;
+                                    $unitPrice = $newBasePrice;
+                                }
+                                else{
+
+                                    if($service_number_service != ''){
+                                        $total = (($newBasePrice - (($newBasePrice * $individualData->percentage) /100 )) * 1) + ($newBasePrice* ($service_number_service - 1) ) ;
+                                    }
+                                    else{
+                                        $total = '';
+                                    }
+                                    
+                                    $basePrice = ($newBasePrice );
+                                    $fullYear = $serviceData->total_service * $newBasePrice;
+                                    $unitPrice = $newBasePrice;
+                                }
+                                
+                            }
+                            
+                        }
+                        //echo "basePrice ". $basePrice;die();
+                        if($discount != ''){
+                            if($individual_discount != ''){
+                                $individualData = $this->Common_model->getSingle('individual_discount',array('id' => $individual_discount ));
+                                if($individualData->id == 2){
+                                    if(in_array($serviceData->related_service_id,$checked_service_id)){
+
+                                        if($service_number_service != ''){
+                                            $total = ($newBasePrice - $individualData->amount ) * $service_number_service;
+                                        }
+                                        else{
+                                            $total = 0;
+                                        }
+                                        
+                                        $basePrice = ($newBasePrice - $individualData->amount );
+                                        $fullYear = $serviceData->total_service * $basePrice;
+                                        $unitPrice = $newBasePrice;
+                                    }
+                                    else{
+                                        if($service_number_service != ''){
+                                            $total = ($newBasePrice - $individualData->amount ) * $service_number_service;
+                                        }
+                                        else{
+                                            $total = 0;
+                                        }
+                                        
+                                        $basePrice = ($newBasePrice - $individualData->amount );
+                                        $fullYear = $serviceData->total_service * $basePrice;
+                                        $unitPrice = $newBasePrice;
+                                    }
+                                    
+                                    //echo "here". $serviceData->total_service;
+                                }   
+                                else{
+                                  //  print_r($individualData);die();
+                                    if($service_number_service != ''){
+                                        $total = (($newBasePrice - (($newBasePrice * $individualData->percentage) /100 )) * 1) + ($newBasePrice * ($service_number_service - 1) ) ;
+                                    }
+                                    else{
+                                        $total = '';
+                                    }
+                                    
+                                    $basePrice = ($newBasePrice );
+                                    $fullYear = $serviceData->total_service * $newBasePrice;
+                                    $unitPrice = $newBasePrice;
+                                }
+
+                                $discountData = $this->Common_model->getSingle('discount',array('id' => $discount ));
+                                
+                                $basePrice = $basePrice - (($basePrice * $discountData->percentage)/100);
+                                if($service_number_service != ''){
+                                    $total = $basePrice * $service_number_service;
+                                }
+                                else{
+                                    $total = '';
+                                }
+                                
+                                $fullYear = $serviceData->total_service *  $basePrice;
+
+
+                                
+
+                            }
+                            else{
+
+                                $discountData = $this->Common_model->getSingle('discount',array('id' => $discount ));
+                                $unitPrice = $newBasePrice;
+                                $basePrice = $newBasePrice - (($newBasePrice * $discountData->percentage)/100);
+                               // die();
+                                if($service_number_service != ''){
+                                    $total = $newBasePrice * $service_number_service;
+                                }
+                                else{
+                                    $total = '';
+                                }
+                                
+                                $fullYear = $serviceData->total_service *  $newBasePrice;
+
+                            }
+                           // echo "Here";
+                           // $discountData = $this->Common_model->getSingle('discount',array('id' => $discount ));
+
+                        }
+
+                        $response = array("system_price_unit" =>$basePrice,"cost" => $unitPrice,"total_cost" => $total,'full_year' => $fullYear,'total_service' => $serviceData->total_service);
+                        echo json_encode($response);
+                        return;
+
+                        //$response = array("system_price_unit" =>$system_price_unit ,"cost" => $basePrice,"total_cost" => $total,'full_year' => $fullYear);
+                    }
+                    else{
+                    //     echo "size ".$size;
+                    //     echo "serviceData->service_min_price ".($size );
+                    //     echo  "service_min_time ".$serviceData->id;
+                    //   echo  
+                    //     die();
+                        $unitPrice = $serviceData->service_min_price + ((($size - $serviceData->service_min_size)/ $serviceData->service_incremental));
+                        if($service_number_service != ''){
+                            $total = $service_number_service * $unitPrice;
+                        }
+                        else{
+                            $total = '';
+                        }
+                        
+                        $basePrice = ($unitPrice );
+                        $fullYear = $serviceData->total_service * $unitPrice;
+                        //$unitPrice = $newBasePrice;
+
+
+                        
+                        //die();
+                        $response = array("system_price_unit" =>$unitPrice,"cost" => $basePrice,"total_cost" => $total,'full_year' => $fullYear,'total_service' => $serviceData->total_service);
+                        echo json_encode($response);
+                        return;
+                    }
+
+
+                   
+                }
+            }
+            else{
+                 if($serviceData->service_min_time <= $size){
+                   // $unitPrice = $serviceData->service_min_price;
+
+                    
+                   // $unitPrice = $serviceData->service_min_price;
+                   if($discount != '' || $individual_discount != ''){
+                        $discountData = '';
+                        $individualData = '';
+                        $total = '';
+                        $fullYear = '';
+                        
+
+                        if($individual_discount != ''){
+                            $individualData = $this->Common_model->getSingle('individual_discount',array('id' => $individual_discount ));
+                            if($individualData->id == 2){
+                                if($service_number_service != ''){
+                                    $total = ($serviceData->service_min_price - $individualData->amount ) * $service_number_service;
+                                }
+                                else{
+                                    $total = '';
+                                }
+                                
+                                $basePrice = ($serviceData->service_min_price);
+                                $fullYear = $serviceData->total_service * $basePrice;
+                                $unitPrice = $serviceData->service_min_price - $individualData->amount;
+                                //$unitPrice = $serviceData->service_min_price - 
+                                //echo "here". $serviceData->total_service;
+                            }   
+                            else{
+                                if($service_number_service != ''){
+                                     $total = (($serviceData->service_min_price - (($serviceData->service_min_price * $individualData->percentage) /100 )) * 1) + ($serviceData->service_min_price * ($service_number_service - 1) ) ;
+                                }
+                                else{
+                                     $total = '';
+                                }
+                               
+                                $basePrice = ($serviceData->service_min_price );
+                                $unitPrice = $basePrice;
+                                $fullYear = $serviceData->total_service * $serviceData->service_min_price;
+                            }
+                            
+                        }
+                       // echo "basePrice ". $total." unitPrice ".$unitPrice;die();
+                        if($discount != ''){
+                            if($individual_discount != ''){
+                                $individualData = $this->Common_model->getSingle('individual_discount',array('id' => $individual_discount ));
+                                if($individualData->id == 2){
+                                    if($service_number_service != ''){
+                                        $total = ($serviceData->service_min_price - $individualData->amount ) * $service_number_service;
+                                    }
+                                    else{
+                                        $total = '';
+                                    }
+                                    
+                                    $basePrice = ($serviceData->service_min_price);
+                                    $fullYear = $serviceData->total_service * $basePrice;
+                                    $unitPrice = $serviceData->service_min_price - $individualData->amount;
+                                    //$unitPrice = $serviceData->service_min_price - 
+                                    //echo "here". $serviceData->total_service;
+                                }   
+                                else{
+                                    $total = (($serviceData->service_min_price - (($serviceData->service_min_price * $individualData->percentage) /100 )) * 1) + ($serviceData->service_min_price * ($service_number_service - 1) ) ;
+                                    $basePrice = ($serviceData->service_min_price );
+                                    $unitPrice = $basePrice;
+                                    $fullYear = $serviceData->total_service * $serviceData->service_min_price;
+                                }
+
+                                $discountData = $this->Common_model->getSingle('discount',array('id' => $discount ));
+                                $unitPrice - (($unitPrice * $discountData->percentage)/100);
+                              // echo  $basePrice = $basePrice;die();
+                                if($service_number_service != ''){
+                                    $total = $basePrice * $service_number_service;
+                                }
+                                else{
+                                    $total = '';
+                                }
+                                
+                                $fullYear = $serviceData->total_service *  $basePrice;
+
+
+                                
+
+                            }
+                            else{
+                                $discountData = $this->Common_model->getSingle('discount',array('id' => $discount ));
+                                $total = ($serviceData->service_min_price - (($serviceData->service_min_price * $discountData->percentage)/100)) * $service_number_service;
+                                $basePrice = ($serviceData->service_min_price);
+                                $fullYear = $serviceData->total_service * ($serviceData->service_min_price - (($serviceData->service_min_price * $discountData->percentage)/100));
+                                $unitPrice = $serviceData->service_min_price - (($serviceData->service_min_price * $discountData->percentage)/100);
+                               // echo $unitPrice; die();
+
+                            }
+                           // echo "Here";
+                            $discountData = $this->Common_model->getSingle('discount',array('id' => $discount ));
+
+                        }
+
+                        
+
+                        $response = array("system_price_unit" =>$unitPrice,"cost" => $basePrice,"total_cost" => $total,'full_year' => $fullYear,'total_service' => $serviceData->total_service);
+                        echo json_encode($response);
+                        return;
+                    }
+                    else{
+
+                        $total = $serviceData->service_min_price * $service_number_service;
+                        $basePrice = ($serviceData->service_min_price);
+                        $fullYear = $serviceData->total_service * $serviceData->service_min_price;
+                        $unitPrice = $serviceData->service_min_price;
+                         $response = array("system_price_unit" =>$unitPrice,"cost" => $basePrice,"total_cost" => $total,'full_year' => $fullYear,'total_service' => $serviceData->total_service);
+                        echo json_encode($response);
+                        return;
+
+                    }
+
+
+
+                }
+                else{
+                    //echo 'service_min_time '.$serviceData->service_min_time.'size '.$size;
+                     $unitPrice = $serviceData->service_min_price + ((($size - $serviceData->service_min_time)/ $serviceData->service_incremental) * $serviceData->service_incremental_price);
+                    //die();
+                     $response = array("system_price_unit" =>$unitPrice,"cost" => $basePrice,"total_cost" => $total,'full_year' => $fullYear,'total_service' => $serviceData->total_service);
+                        echo json_encode($response);
+                        return;
+
+                }
+            }
+        }
+        echo "unitPriceaaa ".$unitPrice." size ".$size." service_min_size ".$serviceData->service_min_size;
+        //echo json_encode($serviceData);
+         die();
+
+       
+
+        echo json_encode($response);
+
+
+
+    }
+
+    public function userName(){
+		$clinicDetails =  $this->Common_model->numrows('golfersu_user',array('username' => $_GET['user_name']));
+		if ($clinicDetails == 0) { 
+            echo "true";
+        } else {
+            echo "false";
+        }
+	}
+
+    public function emailCheck(){
+		$clinicDetails =  $this->Common_model->numrows('golfersu_user',array('user_email' => $_GET['email']));
+		if ($clinicDetails == 0) { 
+            echo "true";
+        } else {
+            echo "false";
+        }
+	}
+
+    public function fileUploadVideo(){
+        // print_r($_FILES);
+        // print_r($_POST);
+        $upload = 'err'; 
+        if(!empty($_FILES['file'])){ 
+            
+            // File upload configuration 
+            $targetDir = FCPATH."/public/upload/"; 
+            $allowTypes = array('pdf', 'doc', 'docx', 'jpg', 'png', 'jpeg', 'gif'); 
+            
+            $fileName = time().rand(000,999).basename($_FILES['file']['name']); 
+            $targetFilePath = $targetDir.$fileName; 
+            
+            // Check whether file type is valid 
+            $fileType = pathinfo($targetFilePath, PATHINFO_EXTENSION); 
+           // if(in_array($fileType, $allowTypes)){ 
+                // Upload file to the server 
+                if(move_uploaded_file($_FILES['file']['tmp_name'], $targetFilePath)){ 
+                    $upload = base_url().'public/upload/'.$fileName; 
+                    $this->Common_model->insertData('golfersu_userstep_video',array('user_id' => $this->session->userdata('user_id'),'step' => $_POST['step'],'video_file' => 'public/upload/'.$fileName ));
+                } 
+           // } 
+        } 
+        echo $upload; 
+
+
+    }
+    
+    
+
+
+
+
+}

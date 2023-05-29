@@ -1,0 +1,149 @@
+<div class="stap_top__wrapper">
+            <form id="msform">
+                <!-- progressbar -->
+                <ul id="progressbar">
+                    <li class="active" id="introduction"><strong>Introduction</strong></li>
+                    <li  id="account"><strong>Step 1</strong></li>
+                    <li id="personal"><strong>Step 2</strong></li>
+                    <li id="payment"><strong>Step 3</strong></li>
+                    <li id="confirm"><strong>Step 4</strong></li>
+                    <li id="confirm2"><strong>Step 5</strong></li>
+                </ul>
+
+                <fieldset class="first-tab">
+                    <h2 class="tab-titel">Please follow the below mentioned steps to complete the 21-day Challenge Masterclass</h2>
+                    <p>Click on the steps to view the course material for each step.</p>
+                    <p>Once you complete each step, please verify by clicking on the checkbox "I have completed the step".</p>
+                    <p>Once you complete each step, you will be given the option to upload your learning video and share it fo the 21-day challenge masterclass
+                    community and also to share the video on your social media with your family and friends.</p>
+                    <p>Each likes and share on your video will be counted as a vote.</p>
+                    <p>Based on each vote, you will unlock different levels. Each level has rewards that include Freebies and prizes.<p>
+                    <p>Once you complete the step 5, you will complete the 21-day challenge masterclass course.</p>
+                    
+
+                    
+                    
+                            
+                         <input type="button" name="next" class="next action-button" value="Next" />
+                </fieldset>
+
+                <fieldset>
+                    <h2 class="tab-titel">Learning Video</h2>
+                    <div class="vedeo padd0">
+                        <span><a href="#"><img src="<?php echo base_url();?>public/assets/img/play.png" alt=""></a></span>
+                        <img src="<?php echo base_url();?>public/assets/img/v.png" alt="">
+                    </div>
+                    <div class="new">
+                          
+                        <div class="form-group">
+                            <input type="checkbox" class="completedVideo" id="html">
+                            <label for="html">I have completed the step</label>
+                        </div>
+                        
+                      </div>
+                      <div class="file-upload" style="display:none;">
+                        <div class="file-upload-left-wrapper">
+                            <div class="file-upload-left">
+                                <img src="<?php echo base_url();?>public/assets/img/file-upload-icon.png" alt="">
+                                <h3>Drag and Drop files to upload
+                                    <br>
+                                    or
+                                    <br>
+                                    <input type="file" accept="image/*" id="imageInput">
+                                    <button for="imageInput">Browse</button>
+                                    <p>Supported files : MP4, MPEG, AVI</p>
+                                </h3>
+                            </div>
+                        </div>
+                        <div class="file-upload-right" style="display:none;">
+                            <div class="file-upload-progressbar-wrapper">
+                                <h3>Uploaded File</h3>
+                                <div class="file-upload-progressbar">
+                                    <div class="file-upload-progressbar__left"><img src="<?php echo base_url();?>public/assets/img/file.png" alt=""></div>
+                                    <div class="file-upload-progressbar__right">
+                                        <h4>Final_video.mp4</h4>
+                                        <a href="#"><img src="<?php echo base_url();?>public/assets/img/crose.png" alt=""></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+
+                    
+                    
+                        <input type="button" name="previous" class="previous action-button-previous" value="Back" />
+                         <input type="button" name="next" class="next action-button" value="Next" />
+                </fieldset>
+                <fieldset>
+                    
+                    <div class="tab-con">
+                        <div class="progolfers">
+                            <div class="progolfers__item"> <img src="<?php echo base_url();?>public/assets/img/iimg1a.png" alt=""> <h4>Progolfers 1</h4></div>
+                            <div class="progolfers__item"><img src="<?php echo base_url();?>public/assets/img/iimg1.png" alt=""> <h4>Progolfers 2</h4></div>
+                            <div class="progolfers__item"><img src="<?php echo base_url();?>public/assets/img/iimg2.png" alt=""> <h4>Progolfers 3</h4></div>
+                            <div class="progolfers__item"><img src="<?php echo base_url();?>public/assets/img/iimg3.png" alt=""> <h4>Progolfers 4</h4></div>
+                        </div>
+                        <div class="vedeo second-tab-video">
+                            <span><a href="#"><img src="<?php echo base_url();?>public/assets/img/play.png" alt=""></a></span>
+                            <img src="<?php echo base_url();?>public/assets/img/v.png" alt="">
+                        </div>
+
+                    </div>
+                    <input type="button" name="previous" class="previous action-button-previous" value="Back" />
+                    <input type="button" name="next" class="next action-button" value="Next" /> 
+                </fieldset>
+                <fieldset>
+                    <div class="video__topsection">
+                        <div class="video__topsection__left">
+                            Uploaded Videos
+                        </div>
+                        <div class="video__topsection__right">
+                            <ul>
+                                <li><a href="#">Back to Step 1</a></li>
+                                <li><a href="#">Upload more videos</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="video__section">
+                        <div class="video__left">
+                            <div class="video__left-div">
+                                <span><a href="#"><img src="<?php echo base_url();?>public/assets/img/play.png" alt=""></a></span>
+                                <img src="<?php echo base_url();?>public/assets/img/v2.png" alt="">
+                            </div>
+                        </div>
+                        <div class="video__right">
+                            <div class="video__right__top">
+                                <h4>Share your video into internal community</h4>
+                                <button><img src="<?php echo base_url();?>public/assets/img/she.png" alt=""> Share</button>
+                            </div>
+                            <div class="video__right__con">  Want more reward point? </div>
+                            <div class="video__right__con">Share into your Personal Social Media Account</div>
+                            <div class="social__icon">
+                                <ul>
+                                    <li><a href="#"><img src="<?php echo base_url();?>public/assets/img/f.png" alt=""></a></li>
+                                    <li><a href="#"><img src="<?php echo base_url();?>public/assets/img/t.png" alt=""></a></li>
+                                    <li><a href="#"><img src="<?php echo base_url();?>public/assets/img/p.png" alt=""></a></li>
+                                </ul>
+                            </div>
+
+                            <div class="message"><img src="<?php echo base_url();?>public/assets/img/mass.png" alt=""><span>3</span> Jimmy’s Message </div>
+                        </div>
+                    </div>
+                    <input type="button" name="previous" class="previous action-button-previous" value="Back" />
+                    <input type="button" name="next" class="next action-button" value="Next" /> 
+                </fieldset>
+                <fieldset>
+                    <input type="button" name="previous" class="previous action-button-previous" value="Back" />
+                    <input type="button" name="next" class="next action-button" value="Next" /> 
+                </fieldset>
+                <fieldset>
+                    <input type="button" name="previous" class="previous action-button-previous" value="Back" />
+                    <input type="button" name="next" class="next action-button" value="Next" /> 
+                </fieldset>
+                
+                
+            </form>
+        </div>

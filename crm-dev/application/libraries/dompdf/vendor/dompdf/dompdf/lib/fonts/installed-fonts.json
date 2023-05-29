@@ -1,0 +1,19 @@
+{
+    "fontawesome": {
+        "normal": "fontawesome_normal_7ea195556637d817f455524c7885b526"
+    },
+    "open sans": {
+        "300": "\/home3\/wecanaez\/public_html\/application\/libraries\/dompdf\/vendor\/dompdf\/dompdf\/lib\/fonts\/open_sans_300_3991bff746d3377656ad3cf53b24fe9e",
+        "normal": "\/home3\/wecanaez\/public_html\/application\/libraries\/dompdf\/vendor\/dompdf\/dompdf\/lib\/fonts\/open_sans_normal_0c50822862df0e4bc3da7bec4af72b54",
+        "600": "\/home3\/wecanaez\/public_html\/application\/libraries\/dompdf\/vendor\/dompdf\/dompdf\/lib\/fonts\/open_sans_600_75341019d0aad9d730980a0320d86ab8",
+        "bold": "\/home3\/wecanaez\/public_html\/application\/libraries\/dompdf\/vendor\/dompdf\/dompdf\/lib\/fonts\/open_sans_bold_16020d134f3ca847d8cdba64e3e9ca33",
+        "800": "open_sans_800_54e4dbec225310932e45306345a8c89d"
+    },
+    "montserrat": {
+        "300": "\/home3\/wecanaez\/public_html\/application\/libraries\/dompdf\/vendor\/dompdf\/dompdf\/lib\/fonts\/montserrat_300_244b6b42642ebc91ebaa22decbf16191",
+        "normal": "\/home3\/wecanaez\/public_html\/application\/libraries\/dompdf\/vendor\/dompdf\/dompdf\/lib\/fonts\/montserrat_normal_0a82c580487c3ab5fee63e7f9b60f3f3",
+        "500": "\/home3\/wecanaez\/public_html\/application\/libraries\/dompdf\/vendor\/dompdf\/dompdf\/lib\/fonts\/montserrat_500_4215c826dbb020729009212e9b621144",
+        "600": "\/home3\/wecanaez\/public_html\/application\/libraries\/dompdf\/vendor\/dompdf\/dompdf\/lib\/fonts\/montserrat_600_78ffe211b9c1a9ecc54d176954a2889f",
+        "bold": "montserrat_bold_629e71940f11098ade299cc55f80363d"
+    }
+}

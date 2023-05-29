@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Dashboard</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="<?php echo base_url();?>public/assets/img/fav.png" rel="icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.gstatic.com" rel="preconnect">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="<?php echo base_url();?>public/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="<?php echo base_url();?>public/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="<?php echo base_url();?>public/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="<?php echo base_url();?>public/assets/vendor/quill/quill.snow.css" rel="stylesheet">
+  <link href="<?php echo base_url();?>public/assets/vendor/quill/quill.bubble.css" rel="stylesheet">
+  <link href="<?php echo base_url();?>public/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="<?php echo base_url();?>public/assets/vendor/simple-datatables/style.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="<?php echo base_url();?>public/assets/css/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="header fixed-top d-flex align-items-center">
+
+    <div class="d-flex align-items-center justify-content-between">
+            <i class="bi bi-list toggle-sidebar-btn"></i>
+      <a href="index.html" class="logo d-flex align-items-center">
+        <img src="<?php echo base_url();?>public/assets/img/logo.jpg" alt="">
+      </a>
+
+    </div><!-- End Logo -->
+
+    <nav class="header-nav ms-auto">
+      <ul class="d-flex align-items-center">
+
+        <li class="nav-item dropdown pe-3">
+
+          <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
+            <img src="<?php echo base_url();?>public/assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
+            <span class="d-none d-md-block dropdown-toggle ps-2">Welcome John!</span>
+          </a><!-- End Profile Iamge Icon -->
+
+          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
+            <li class="dropdown-header">
+              <h6>John</h6>
+              <span>CEO</span>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+           
+
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="<?php echo site_url();?>/logout">
+                <i class="bi bi-box-arrow-right"></i>
+                <span>Sign Out</span>
+              </a>
+            </li>
+
+          </ul><!-- End Profile Dropdown Items -->
+        </li><!-- End Profile Nav -->
+
+      </ul>
+    </nav><!-- End Icons Navigation -->
+
+  </header><!-- End Header -->
+
+  <!-- ======= Sidebar ======= -->
+  <aside id="sidebar" class="sidebar">
+
+    <ul class="sidebar-nav" id="sidebar-nav">
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="<?php echo site_url();?>/proposal">
+        <i class="bi bi-palette-fill"></i>
+          <span>My Service Proposal</span>
+        </a>
+      </li><!-- End Dashboard Nav -->
+
+     
+     <!-- End Blank Page Nav -->
+
+
+     <!-- <li class="nav-item">
+        <a class="nav-link collapsed" href="transcriber_management.html">
+          <i class='bx bx-list-check'></i>
+          <span>My Task </span>
+        </a>
+      </li> -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#">
+          <i class="bx bx-cog"></i>
+          <span>Settings</span>
+        </a>
+      </li>
+
+
+
+    </ul>
+
+  </aside><!-- End Sidebar-->
+
+<main id="main" class="main">
+<?php echo $content;?>
+</main><!-- End #main -->
+
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+<script src="<?php echo base_url();?>public/site/js/jquery.min.js"></script> 
+  <!-- Vendor JS Files -->
+  <script src="<?php echo base_url();?>public/assets/vendor/apexcharts/apexcharts.min.js"></script>
+  <script src="<?php echo base_url();?>public/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="<?php echo base_url();?>public/assets/vendor/chart.js/chart.umd.js"></script>
+  <script src="<?php echo base_url();?>public/assets/vendor/echarts/echarts.min.js"></script>
+  <script src="<?php echo base_url();?>public/assets/vendor/quill/quill.min.js"></script>
+  <script src="<?php echo base_url();?>public/assets/vendor/simple-datatables/simple-datatables.js"></script>
+  <script src="<?php echo base_url();?>public/assets/vendor/tinymce/tinymce.min.js"></script>
+  <script src="<?php echo base_url();?>public/assets/vendor/php-email-form/validate.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-toast-plugin/1.3.2/jquery.toast.min.js" integrity="sha512-zlWWyZq71UMApAjih4WkaRpikgY9Bz1oXIW5G0fED4vk14JjGlQ1UmkGM392jEULP8jbNMiwLWdM8Z87Hu88Fw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-toast-plugin/1.3.2/jquery.toast.min.css" integrity="sha512-wJgJNTBBkLit7ymC6vvzM1EcSWeM9mmOu+1USHaRBbHkm6W9EgM0HY27+UtUaprntaYQJF75rc8gjxllKs5OIQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- Template Main JS File -->
+  <script src="<?php echo base_url();?>public/assets/js/main.js"></script>
+  <script>
+  $(document).ready(function(){
+
+      
+      $('.lastBack').click(function(){
+          $('#step2_tab').tab('show');
+      });
+      $('.firstBack').click(function(){
+        $('body').removeClass("toggle-sidebar");
+          $('#step1_tab').tab('show');
+      });
+
+     $('.firstNext').click(function(){
+      $('body').addClass("toggle-sidebar");
+          
+           if($('select[name="individual_discount"] option:selected').val() != ''){
+            localStorage.setItem("individual_discount_id",$('select[name="individual_discount"] option:selected').val());
+            localStorage.setItem("individual_discount_text",$('select[name="individual_discount"] option:selected').text());
+            $('.discount').html($('select[name="individual_discount"] option:selected').text());
+           
+           }
+          else{
+            localStorage.removeItem('individual_discount_id');
+            localStorage.removeItem('individual_discount_text');
+          }
+
+          
+
+         
+          //alert($('select[name="individual_discount"] option:selected').text());
+          if($('select[name="discount"] option:selected').val() != ''){
+            $('.discount_service').html($('select[name="discount"] option:selected').text());
+            localStorage.setItem("discount_id",$('select[name="discount"] option:selected').val());
+            localStorage.setItem("discount_text",$('select[name="discount"] option:selected').text());
+          }
+          else{
+            localStorage.removeItem('discount_id');
+            localStorage.removeItem('discount_text');
+          }
+          
+          $('#step2_tab').tab('show');
+      });
+
+      $('.secondNext').click(function(){
+        $('body').removeClass("toggle-sidebar");
+          $('#step3_tab').tab('show');
+      });
+
+      $("#customer_no").keyup(function(e){
+            $('.customer_no_data').text($(this).val());   
+      });
+
+      $("#customer_name").keyup(function(e){
+           $('.customer_name_data').text($(this).val());    
+      });
+
+      $("#phone_number").keyup(function(e){
+            $('.customer_contact_data').text($(this).val());  
+      });
+
+      $("#email").keyup(function(e){
+            $('.customer_email_data').text($(this).val());    
+      });
+
+      $("#address").keyup(function(e){
+            $('.customer_address_data').text($(this).val());    
+      });
+
+      $("#lawn_size").keyup(function(e){
+            $('.customer_lwan_size_data').text($(this).val());   
+      });
+
+      // $("input[name='core_service[]']").click( function () {
+        
+      //     if( $(this).prop('checked') ){
+      //       $('.service_price_'+$(this).val()).show();
+      //       $('.core_service_'+$(this).val()).show();
+      //     }
+      //     else{
+      //       $('.service_price_'+$(this).val()).hide();
+      //       $('.core_service_'+$(this).val()).hide();
+      //     }
+      // });
+
+      //  $("input[name='individual_service[]']").click( function () {
+        
+      //     if( $(this).prop('checked') ){
+      //       $('.individual_service_price_'+$(this).val()).show();
+      //       $('.individual_service_'+$(this).val()).show();
+      //     }
+      //     else{
+      //       $('.individual_service_price_'+$(this).val()).hide();
+      //       $('.individual_service_'+$(this).val()).hide();
+      //     }
+      // });
+
+      
+      // $("input[name='core_service_optional[]']").click( function () {
+      //     if( $(this).prop('checked') ){
+      //       $('.core_service_optional_'+$(this).val()).show();
+      //     }
+      //     else{
+      //       $('.core_service_optional_'+$(this).val()).hide();
+      //     }
+      // });
+
+      // $("input[name='outdoor_pest_control[]']").click( function () {
+      //     if( $(this).prop('checked') ){
+      //       $('.outdoor_pest_price_'+$(this).val()).show();
+      //       $('.outdoor_service_'+$(this).val()).show();
+      //     }
+      //     else{
+      //       $('.outdoor_pest_price_'+$(this).val()).hide();
+      //       $('.outdoor_service_'+$(this).val()).hide();
+      //     }
+      // });
+
+      //  $("input[name='outdoor_pest_control_optional[]']").click( function () {
+      //     if( $(this).prop('checked') ){
+      //       $('.outdoor_service_optional_'+$(this).val()).show();
+      //     }
+      //     else{
+      //       $('.outdoor_service_optional_'+$(this).val()).hide();
+      //     }
+      // });
+
+      //  $(".service_size").change( function () {
+
+      //     var ref = $(this).closest('.step2-form');
+      //     var service_id = $('input[name="hidden_core_service[]"]',ref).val();
+      //     var service_type = $('input[name="service_type[]"]',ref).val();
+      //     var discount = $('select[name="discount[]"] option:selected',ref).val();
+      //     var individual_discount = $('select[name="individual_discount[]"] option:selected',ref).val();
+      //     var service_number_service = $('select[name="service_number_service[]"] option:selected',ref).val();
+      //     //alert(discount);
+      //     var sizeData = $(this).val();
+
+      //        $.ajax({
+      //             type: 'POST',
+      //             url: "<?php echo site_url();?>/ajax/calculate_price",
+      //             data: {
+      //                 "service_id":service_id,
+      //                 size:sizeData,
+      //                 service_type:service_type,
+      //                 discount:discount,
+      //                 individual_discount:individual_discount,
+      //                 service_number_service:service_number_service,
+      //               },
+      //             success: function(resultData) { 
+      //              // alert(resultData);
+      //               var result = JSON.parse(resultData);
+      //               console.log("Save Complete"+result.cost);
+      //               $('input[name="system_price_unit[]"]',ref).val(result.system_price_unit);
+      //               $('input[name="unit_price[]"]',ref).val(result.cost);
+      //               $('input[name="total_this_year[]"]',ref).val(result.total_cost);
+      //               $('input[name="total_full_year[]"]',ref).val(result.full_year);
+
+      //                if(service_type == 'core_services'){
+
+      //                  $('body .core_service_'+service_id).find('.pricePerApplication').html(result.cost);
+      //                  $('body .core_service_'+service_id).find('.totalThisYear').html(result.total_cost);  
+      //                  $('.core_service_'+service_id).find('.totalFullYear').html(result.full_year);
+      //               }
+      //               else if(service_type == 'outdoor_pest_controls'){
+      //                  $('body .outdoor_service_'+service_id).find('.pricePerApplication').html(result.cost);
+      //                  $('body .outdoor_service_'+service_id).find('.totalThisYear').html(result.total_cost);  
+      //                  $('body .outdoor_service_'+service_id).find('.totalFullYear').html(result.full_year);
+      //               }
+      //               else{
+      //                  $('body .individual_service_'+service_id).find('.pricePerApplication').html(result.cost);
+      //                  $('body .individual_service_'+service_id).find('.totalThisYear').html(result.total_cost);  
+      //                  $('body .individual_service_'+service_id).find('.totalFullYear').html(result.full_year);
+      //               } 
+
+      //             }
+      //       });
+
+
+      //   });
+
+      //   $(".service_number_service").change( function () {
+
+      //     var ref = $(this).closest('.step2-form');
+      //     var service_id = $('input[name="hidden_core_service[]"]',ref).val();
+      //     var service_type = $('input[name="service_type[]"]',ref).val();
+
+      //     var discount = $('select[name="discount[]"] option:selected',ref).val();
+      //     var individual_discount = $('select[name="individual_discount[]"] option:selected',ref).val();
+
+      //       //alert($(this).val());
+      //      // $('#aioConceptName :selected')
+      //     var sizeData = $('select[name="size[]"] option:selected',ref).val(); 
+      //     var service_number_service = $(this).val();
+
+      //        $.ajax({
+      //             type: 'POST',
+      //             url: "<?php echo site_url();?>/ajax/calculate_price",
+      //             data: {
+      //                   "service_id":service_id,
+      //                   size:sizeData,
+      //                   service_type:service_type,
+      //                   discount:discount,
+      //                   individual_discount:individual_discount,
+      //                   service_number_service:service_number_service,
+
+      //             },
+      //             success: function(resultData) { 
+      //               //alert(resultData);
+      //               var result = JSON.parse(resultData);
+      //               console.log("Save Complete"+result.cost);
+      //                $('input[name="system_price_unit[]"]',ref).val(result.system_price_unit);
+      //               $('input[name="unit_price[]"]',ref).val(result.cost);
+      //               $('input[name="total_this_year[]"]',ref).val(result.total_cost);
+      //               $('input[name="total_full_year[]"]',ref).val(result.full_year);
+
+      //                if(service_type == 'core_services'){
+
+      //                  $('body .core_service_'+service_id).find('.pricePerApplication').html(result.cost);
+      //                  $('body .core_service_'+service_id).find('.totalThisYear').html(result.total_cost);  
+      //                  $('.core_service_'+service_id).find('.totalFullYear').html(result.full_year);
+      //               }
+      //               else if(service_type == 'outdoor_pest_controls'){
+      //                  $('body .outdoor_service_'+service_id).find('.pricePerApplication').html(result.cost);
+      //                  $('body .outdoor_service_'+service_id).find('.totalThisYear').html(result.total_cost);  
+      //                  $('body .outdoor_service_'+service_id).find('.totalFullYear').html(result.full_year);
+      //               }
+      //               else{
+      //                  $('body .individual_service_'+service_id).find('.pricePerApplication').html(result.cost);
+      //                  $('body .individual_service_'+service_id).find('.totalThisYear').html(result.total_cost);  
+      //                  $('body .individual_service_'+service_id).find('.totalFullYear').html(result.full_year);
+      //               } 
+
+      //             }
+      //       });
+
+
+      //   });
+
+       // $("input[name='number_of_services[]']").change( function () {
+        $("input[name='number_of_services[]']").bind('keyup change', function (event) {
+          event.preventDefault();
+          //alert("number_of_services : "+$(this).val());
+          
+          var ref = $(this).closest('tr');
+          var service_number_service = $(this).val();
+          var number_of_services_fy = $('input[name="number_of_services_fy[]"]',ref).val();
+          var service_id = $('input[name="service_id[]"]',ref).val();
+          var sizeData = $('input[name="size[]"]',ref).val();
+
+          var checkedServiceId = [];
+            $("input:checkbox[name='service_id[]']:checked").each(function() {
+                checkedServiceId.push($(this).val());
+            });
+
+          if(localStorage.getItem("individual_discount_id")){
+            var individual_discount = localStorage.getItem("individual_discount_id");
+          }
+          else{
+            var individual_discount = '';
+          }
+          if(localStorage.getItem("discount_id")){
+            var discount = localStorage.getItem("discount_id");
+          }
+          else{
+            var discount = '';
+          }
+
+          if(parseInt(service_number_service) <= parseInt(number_of_services_fy) ){
+           
+              $.ajax({
+                  type: 'POST',
+                  url: "<?php echo site_url();?>/ajax/calculate_price",
+                  data: {
+                        service_id:service_id,
+                        size:sizeData,
+                        // service_type:service_type,
+                        checked_service_id:checkedServiceId,
+                        discount:discount,
+                        individual_discount:individual_discount,
+                        service_number_service:service_number_service,
+
+                  },
+                  success: function(resultData) { 
+                   // alert(resultData);
+                    var result = JSON.parse(resultData);
+                    console.log("Save Complete"+result.cost);
+                    $('input[name="system_unit_price[]"]',ref).val(result.cost);
+                    $('input[name="unit_price[]"]',ref).val(result.system_price_unit);
+                    $('input[name="total_this_year[]"]',ref).val(result.total_cost);
+                    $('input[name="total_full_year[]"]',ref).val(result.full_year);
+
+                    var totalBeforeDiscount = 0;
+                    var totalAfterAllDiscount = parseFloat(0);
+                    var sales_tax = 0;
+                    var allTotal = 0;
+
+                    var totalAfterAllDiscount = 0;
+                    var prepaymentDiscount = 0;
+                    var salesTax1 = 0;
+                    var totalPrepaid = 0;
+
+
+
+                    $("input:checkbox[name='service_id[]']:checked").each(function() {
+                        //checkedServiceId.push($(this).val());
+                        var ref1 = $(this).closest('tr');
+                        var systemUnitPrice = $('input[name="system_unit_price[]"]',ref1).val();
+                        var numberOfService = $('input[name="number_of_services[]"]',ref1).val();
+                        var unitPrice = $('input[name="unit_price[]"]',ref1).val();
+                        var total_this_year = $('input[name="total_this_year[]"]',ref1).val();
+                        totalBeforeDiscount += parseFloat(systemUnitPrice) * parseFloat(numberOfService);
+                        totalAfterAllDiscount += parseFloat(total_this_year);                       
+                    });
+
+                    sales_tax = parseInt(totalAfterAllDiscount * 8.25) / 100;
+                    $('input[name="total_before_discount"]').val(totalBeforeDiscount);
+                    $('input[name="total_after_all_discount"]').val(totalAfterAllDiscount);
+                    $('input[name="sales_tax"]').val(sales_tax);
+                    $('input[name="all_total"]').val(parseFloat(totalAfterAllDiscount) + parseFloat(sales_tax)); 
+                    //console.log();
+                    $('.totalBeforeDiscount').html("$"+totalBeforeDiscount);  
+                    $('.totalAfterAllDiscount').html("$"+totalAfterAllDiscount);  
+                    $('.salesTax').html("$"+sales_tax);  
+                    $('.allTotal').html("$"+parseFloat(totalAfterAllDiscount) + sales_tax); 
+
+
+                    $('input[name="total_after_all_discount"]').val(totalAfterAllDiscount);
+                      prepayment_discount = (parseFloat(totalAfterAllDiscount) * 5)/100;
+                      $('input[name="prepayment_discount"]').val(prepayment_discount);
+
+                      salesTax1 = ((parseFloat(totalAfterAllDiscount) - parseFloat(prepayment_discount) ) * 8.25 )/100;
+                    $('input[name="sales_tax1"]').val(salesTax1);
+                    
+                    $('.prepaymentDiscount').html("$"+prepayment_discount);  
+                    $('.salesTax1').html("$"+salesTax1);  
+                    $('.totalPrepaid').html("$"+(parseFloat(totalAfterAllDiscount) + parseFloat(salesTax1)) - parseFloat(prepayment_discount)); 
+                    $('input[name="total_prepaid"]').val((parseFloat(totalAfterAllDiscount) + parseFloat(salesTax1)) - parseFloat(prepayment_discount)); 
+                    
+
+                    //alert("totalBeforeDiscount "+totalBeforeDiscount);
+                    //alert("totalAfterAllDiscount "+totalAfterAllDiscount);
+                    
+                    //total_this_year[]
+
+                    //  if(service_type == 'core_services'){
+
+                    //    $('body .core_service_'+service_id).find('.pricePerApplication').html(result.cost);
+                    //    $('body .core_service_'+service_id).find('.totalThisYear').html(result.total_cost);  
+                    //    $('.core_service_'+service_id).find('.totalFullYear').html(result.full_year);
+                    // }
+                    // else if(service_type == 'outdoor_pest_controls'){
+                    //    $('body .outdoor_service_'+service_id).find('.pricePerApplication').html(result.cost);
+                    //    $('body .outdoor_service_'+service_id).find('.totalThisYear').html(result.total_cost);  
+                    //    $('body .outdoor_service_'+service_id).find('.totalFullYear').html(result.full_year);
+                    // }
+                    // else{
+                    //    $('body .individual_service_'+service_id).find('.pricePerApplication').html(result.cost);
+                    //    $('body .individual_service_'+service_id).find('.totalThisYear').html(result.total_cost);  
+                    //    $('body .individual_service_'+service_id).find('.totalFullYear').html(result.full_year);
+                    // } 
+
+                  }
+            });
+
+          }
+          else{
+            $.toast({
+                  heading: 'Error',
+                  text: 'Number of Services (EOY)	sholud be less than '+number_of_services_fy,
+                  showHideTransition: 'fade',
+                  icon: 'error'
+              });
+          }
+          
+
+      });
+
+       $("input[name='size[]']").bind('keyup change', function (event) {
+          event.preventDefault();
+          //alert("number_of_services : "+$(this).val());
+          
+          var ref = $(this).closest('tr');
+          var service_number_service = $('input[name="number_of_services[]"]',ref).val(); $(this).val();
+          var number_of_services_fy = $('input[name="number_of_services_fy[]"]',ref).val();
+          var service_id = $('input[name="service_id[]"]',ref).val();
+          var sizeData = $(this).val();
+          var checkedServiceId = [];
+            $("input:checkbox[name='service_id[]']:checked").each(function() {
+                checkedServiceId.push($(this).val());
+            });
+          if(localStorage.getItem("individual_discount_id")){
+            var individual_discount = localStorage.getItem("individual_discount_id");
+          }
+          else{
+            var individual_discount = '';
+          }
+          if(localStorage.getItem("discount_id")){
+            var discount = localStorage.getItem("discount_id");
+          }
+          else{
+            var discount = '';
+          }
+
+          if(parseInt(service_number_service) <= parseInt(number_of_services_fy) || service_number_service == '' ){
+           
+              $.ajax({
+                  type: 'POST',
+                  url: "<?php echo site_url();?>/ajax/calculate_price",
+                  data: {
+                        service_id:service_id,
+                        size:sizeData,
+                        // service_type:service_type,
+                        checked_service_id:checkedServiceId,
+                        discount:discount,
+                        individual_discount:individual_discount,
+                        service_number_service:service_number_service,
+
+                  },
+                  success: function(resultData) { 
+
+                    var result = JSON.parse(resultData);
+                    console.log("Save Complete"+result.cost);
+                    $('input[name="system_unit_price[]"]',ref).val(result.cost);
+                    $('input[name="unit_price[]"]',ref).val(result.system_price_unit);
+                    $('input[name="total_this_year[]"]',ref).val(result.total_cost);
+                    $('input[name="total_full_year[]"]',ref).val(result.full_year);
+
+                    var totalBeforeDiscount = 0;
+                    var totalAfterAllDiscount = parseFloat(0);
+                    var sales_tax = 0;
+                    var allTotal = 0;
+
+                    var totalAfterAllDiscount = 0;
+                    var prepaymentDiscount = 0;
+                    var salesTax1 = 0;
+                    var totalPrepaid = 0;
+
+                    $("input:checkbox[name='service_id[]']:checked").each(function() {
+                        //checkedServiceId.push($(this).val());
+                        var ref1 = $(this).closest('tr');
+                        var systemUnitPrice = $('input[name="system_unit_price[]"]',ref1).val();
+                        var numberOfService = $('input[name="number_of_services[]"]',ref1).val();
+                        var unitPrice = $('input[name="unit_price[]"]',ref1).val();
+                        var total_this_year = $('input[name="total_this_year[]"]',ref1).val();
+                        totalBeforeDiscount += parseFloat(systemUnitPrice) * parseFloat(numberOfService);
+                        totalAfterAllDiscount += parseFloat(total_this_year);                       
+                    });
+
+                    sales_tax = parseInt(totalAfterAllDiscount * 8.25) / 100;
+                    $('input[name="total_before_discount"]').val(totalBeforeDiscount);
+                    $('input[name="total_after_all_discount"]').val(totalAfterAllDiscount);
+                    $('input[name="sales_tax"]').val(sales_tax);
+                    $('input[name="all_total"]').val(parseFloat(totalAfterAllDiscount) + parseFloat(sales_tax)); 
+                    //console.log();
+                    $('.totalBeforeDiscount').html("$"+totalBeforeDiscount);  
+                    $('.totalAfterAllDiscount').html("$"+totalAfterAllDiscount);  
+                    $('.salesTax').html("$"+sales_tax);  
+                    $('.allTotal').html("$"+parseFloat(totalAfterAllDiscount) + sales_tax); 
+
+                    $('input[name="total_after_all_discount"]').val(totalAfterAllDiscount);
+                      prepayment_discount = (parseFloat(totalAfterAllDiscount) * 5)/100;
+                      $('input[name="prepayment_discount"]').val(prepayment_discount);
+
+                      salesTax1 = ((parseFloat(totalAfterAllDiscount) - parseFloat(prepayment_discount) ) * 8.25 )/100;
+                    $('input[name="sales_tax1"]').val(salesTax1);
+                    
+                    $('.prepaymentDiscount').html("$"+prepayment_discount);  
+                    $('.salesTax1').html("$"+salesTax1);  
+                    $('.totalPrepaid').html("$"+(parseFloat(totalAfterAllDiscount) + parseFloat(salesTax1)) - parseFloat(prepayment_discount)); 
+                    $('input[name="total_prepaid"]').val((parseFloat(totalAfterAllDiscount) + parseFloat(salesTax1)) - parseFloat(prepayment_discount)); 
+                    
+                  }
+            });
+
+          }
+          else{
+            $.toast({
+                  heading: 'Error',
+                  text: 'Number of Services (EOY)	sholud be less than '+number_of_services_fy,
+                  showHideTransition: 'fade',
+                  icon: 'error'
+              });
+          }
+          
+
+      });
+
+
+      $("input[name='service_id[]']").change( function (event) {
+
+        
+          event.preventDefault();
+          //alert("number_of_services : "+$(this).val());
+
+           $("input:checkbox[name='service_id[]']:checked").each(function() {
+
+
+              var ref = $(this).closest('tr');
+              var service_number_service = $('input[name="number_of_services[]"]',ref).val(); $(this).val();
+              var number_of_services_fy = $('input[name="number_of_services_fy[]"]',ref).val();
+              var service_id = $('input[name="service_id[]"]',ref).val();
+              var sizeData = $(this).val();
+              var checkedServiceId = [];
+                $("input:checkbox[name='service_id[]']:checked").each(function() {
+                    checkedServiceId.push($(this).val());
+                });
+              if(localStorage.getItem("individual_discount_id")){
+                var individual_discount = localStorage.getItem("individual_discount_id");
+              }
+              else{
+                var individual_discount = '';
+              }
+              if(localStorage.getItem("discount_id")){
+                var discount = localStorage.getItem("discount_id");
+              }
+              else{
+                var discount = '';
+              }
+
+              if(parseInt(service_number_service) <= parseInt(number_of_services_fy) || service_number_service == '' ){
+              
+                  $.ajax({
+                      type: 'POST',
+                      url: "<?php echo site_url();?>/ajax/calculate_price",
+                      data: {
+                            service_id:service_id,
+                            size:sizeData,
+                            // service_type:service_type,
+                            checked_service_id:checkedServiceId,
+                            discount:discount,
+                            individual_discount:individual_discount,
+                            service_number_service:service_number_service,
+
+                      },
+                      success: function(resultData) { 
+
+                        var result = JSON.parse(resultData);
+                        console.log("Save Complete"+result.cost);
+                        $('input[name="system_unit_price[]"]',ref).val(result.cost);
+                        $('input[name="unit_price[]"]',ref).val(result.system_price_unit);
+                        $('input[name="total_this_year[]"]',ref).val(result.total_cost);
+                        $('input[name="total_full_year[]"]',ref).val(result.full_year);
+
+                        var totalBeforeDiscount = 0;
+                        var totalAfterAllDiscount = parseFloat(0);
+                        var sales_tax = 0;
+                        var allTotal = 0;
+
+                        var totalAfterAllDiscount = 0;
+                        var prepaymentDiscount = 0;
+                        var salesTax1 = 0;
+                        var totalPrepaid = 0;
+
+                        $("input:checkbox[name='service_id[]']:checked").each(function() {
+                            //checkedServiceId.push($(this).val());
+                            var ref1 = $(this).closest('tr');
+                            var systemUnitPrice = $('input[name="system_unit_price[]"]',ref1).val();
+                            var numberOfService = $('input[name="number_of_services[]"]',ref1).val();
+                            var unitPrice = $('input[name="unit_price[]"]',ref1).val();
+                            var total_this_year = $('input[name="total_this_year[]"]',ref1).val();
+                            totalBeforeDiscount += parseFloat(systemUnitPrice) * parseFloat(numberOfService);
+                            totalAfterAllDiscount += parseFloat(total_this_year);                       
+                        });
+
+                        sales_tax = parseInt(totalAfterAllDiscount * 8.25) / 100;
+                        $('input[name="total_before_discount"]').val(totalBeforeDiscount);
+                        $('input[name="total_after_all_discount"]').val(totalAfterAllDiscount);
+                        $('input[name="sales_tax"]').val(sales_tax);
+                        $('input[name="all_total"]').val(parseFloat(totalAfterAllDiscount) + parseFloat(sales_tax)); 
+                        //console.log();
+                        $('.totalBeforeDiscount').html("$"+totalBeforeDiscount);  
+                        $('.totalAfterAllDiscount').html("$"+totalAfterAllDiscount);  
+                        $('.salesTax').html("$"+sales_tax);  
+                        $('.allTotal').html("$"+parseFloat(totalAfterAllDiscount) + sales_tax); 
+
+                        $('input[name="total_after_all_discount"]').val(totalAfterAllDiscount);
+                          prepayment_discount = (parseFloat(totalAfterAllDiscount) * 5)/100;
+                          $('input[name="prepayment_discount"]').val(prepayment_discount);
+
+                          salesTax1 = ((parseFloat(totalAfterAllDiscount) - parseFloat(prepayment_discount) ) * 8.25 )/100;
+                        $('input[name="sales_tax1"]').val(salesTax1);
+                        
+                        $('.prepaymentDiscount').html("$"+prepayment_discount);  
+                        $('.salesTax1').html("$"+salesTax1);  
+                        //alert((parseFloat(totalAfterAllDiscount) + parseFloat(salesTax1)) - parseFloat(prepayment_discount));
+                        var checkdata = (parseFloat(totalAfterAllDiscount) + parseFloat(salesTax1)) - parseFloat(prepayment_discount);
+                        $('.totalPrepaid').html("$"+checkdata); 
+                        $('input[name="total_prepaid"]').val((parseFloat(totalAfterAllDiscount) + parseFloat(salesTax1)) - parseFloat(prepayment_discount)); 
+                        
+                      }
+                });
+
+              }
+              else{
+                $.toast({
+                      heading: 'Error',
+                      text: 'Number of Services (EOY)	sholud be less than '+number_of_services_fy,
+                      showHideTransition: 'fade',
+                      icon: 'error'
+                  });
+              }
+              
+
+            });
+
+      });
+
+        
+
+  
+
+    <?php /* if(!empty($services)){
+              foreach($services as $serviceData){
+          ?>
+
+            $(".service_size_<?php echo $serviceData->id;?>").change( function () {
+
+                
+                if($(this).val() == 1){
+                  console.log("service id : ",$(this).val());
+                }
+                else{
+                  console.log("service id : ",$(this).val());
+                }
+                // if( $(this).prop('checked') ){
+                //   $('.outdoor_service_optional_'+$(this).val()).show();
+                // }
+                // else{
+                //   $('.outdoor_service_optional_'+$(this).val()).hide();
+                // }
+            });
+          
+           $(".service_number_service_<?php echo $serviceData->id;?>").change( function () {
+
+               
+                if($(this).val() == 1){
+                  console.log("service id : ",$(this).val());
+                }
+                else{
+                  console.log("service id : ",$(this).val());
+                }
+          });
+
+
+    <?php  } } */?>
+
+  });
+  </script>
+
+</body>
+
+</html>

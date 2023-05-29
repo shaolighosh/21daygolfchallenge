@@ -1,0 +1,247 @@
+
+  
+ 
+/* medium - display 2  */
+/* @media (min-width: 768px) {
+  .carousel-inner .carousel-item-right.active, .prt_caruosel .carousel-inner .carousel-item-next {  transform: translateX(50%);}
+  .carousel-inner .carousel-item-left.active, .prt_caruosel .carousel-inner .carousel-item-prev { transform: translateX(-50%); }
+} */
+
+/* large - display 3 */
+/* @media (min-width: 992px) {
+  .prt_caruosel .carousel-inner .carousel-item-right.active, .prt_caruosel .carousel-inner .carousel-item-next { transform: translateX(33%);}
+  .prt_caruosel .carousel-inner .carousel-item-left.active, .prt_caruosel .carousel-inner .carousel-item-prev { transform: translateX(-33%);}
+
+  
+} */
+
+@media (max-width: 1600px) {
+  .our_adv_sec .zig_desc { padding-top: 0;}
+
+}
+
+
+
+
+
+@media (max-width : 1366px) {
+    #carouselExamplee{width: 80%; margin: 0 auto;}
+    .top_right ul.top_adm li { margin-right: 5px; padding-right: 5px;}
+    .nav-header .logo img{width:100%;}
+    .carousel-item h1 { font-size: 40px; line-height: 58px;}
+    .carousel-caption .caption_box {  width: 80%; margin: 0 auto;}
+
+    .zig_row { padding-left: 4%;}
+  
+}
+
+@media (max-width : 1199px) {
+    .carousel-caption .caption_box { width: 100%;}
+    .carousel-item h1 { font-size: 55px; line-height: 70px;}
+    .carousel-caption p {  font-size: 24px; line-height: 35px;}
+ 
+
+    .container { max-width: 960px;}
+    .zig_row {  padding-left:3%;}
+    .zig_row.zig_row_odd { padding-right: 10%;}
+    .zig_img.zig_ht, .zig_img.zig_ht img {height: auto;}
+    .zig_row.zig_row_equal .zig_img img { width: 100%;}
+    
+
+}
+
+@media (max-width : 1100px) {
+    .events_sec #carouselExamplee .carousel-control-prev { left: 0px;}
+    .events_sec #carouselExamplee .carousel-control-next { right: 0px;}
+    .events_sec .carousel-inner{width: 75%; margin: 0 auto;}
+    /* .carousel-control-next, .carousel-control-prev{width: inherit;} */
+    #carouselExamplee .carousel-control-next, #carouselExamplee .carousel-control-prev { width: auto;}
+    .os_title h2 span { padding: 54px 93px;}
+    section.aboutSBC_sec .aboutSBC_container { width: 90%; margin: 0 auto; padding: 30px 25px;}
+    section.aboutSBC_sec .aboutSBC_container h2 { font-size: 35px; padding: 0 0 0;}
+    .contact_rnd_box { width: 450px; height: 450px;}
+    .carousel-caption{top: 28%;}
+
+    h3 { font-size: 25px;}
+
+}
+
+@media (max-width : 1024px) {
+    
+    
+}
+
+
+@media (max-width : 991px) {
+    .carousel-item h1 { font-size: 36px;  line-height: 36px;}
+    .carousel-caption p { font-size: 20px; line-height: 30px;}
+    .lm_btn a.btn-primary { padding: 20px 30px; font-size: 20px; line-height: 20px;}
+    /* .title h2, .arise_content h2, .testimonial_sec .title h2 { font-size: 55px; line-height: 60px; } */
+    .title p {font-size: 16px;line-height: 28px;}
+    .our_service .our_service_texts h4 { font-size: 24px; }
+
+    .contact_row { padding-bottom: 100px;}
+
+    .gallery .col { width: 19%;}
+    .nav-toggle:before {  background-color: #000; box-shadow: 0 0.5em 0 0 #000, 0 1em 0 0 #000; }
+    .header_area.inner_header .nav-toggle:before { background-color: #fff; box-shadow: 0 0.5em 0 0 #000, 0 1em 0 0 #000;}
+   
+    .zig_desc { padding-right: 0;}
+    .zig_row.zig_row_odd .zig_desc{padding-left: 0;}
+    img.slide_img {  height: 400px; object-fit: cover;}
+
+  .ai_sec .ai_img img{width: 100%;}
+  .adrs_box {  padding: 0 0 0 0;}
+
+  .navigation-portrait .nav-toggle { background: #ffb641; border-radius: 3px;}
+  .nav-header { margin: 0 auto; float: none;}
+  .top_right { justify-content: center; align-items: center;}
+  .nav-toggle{top: 0;}
+  .slider{margin-top: 160px;}
+  .top_right ul.top_adm li, .top_right .fa { color: #000;}
+
+  .sticky .top_right ul.top_adm li,   .sticky .top_right .fa{color: #fff;}
+
+  .slider.inner_banner img.slide_img { height: 300px; }
+  .slider.inner_banner .carousel-caption{top: 0;}
+
+  h3 { font-size: 20x;}
+    
+  .our_adv_sec .zig_desc ul{padding-bottom: 50px;} 
+
+  .slider.inner_banner img.slide_img {  height: 410px;}
+  .career_detail_row .title { width: 100%;}
+
+
+}
+
+
+
+
+@media (max-width : 767px) {
+  .carousel-caption { top: 14%; width: 100%; left: 0; right: 0;}
+    .carousel-item h1 { font-size: 26px; line-height: 45px;}
+    .carousel-caption p { display: none; font-size: 17px; line-height: 25px;}
+    .carousel-control-next-icon, .carousel-control-prev-icon { width: 15px; height: 35px;}
+    .lm_btn a.btn-primary { letter-spacing: 2px; padding: 15px 20px;  font-size: 14px; line-height: 18px;}
+    /* .header_area { top: 16px;} */
+    .nav-brand.logo img{width: 140px;}
+    .nav-header{float: left;}
+    .nav-header { width: 150px;}
+    .header_area {
+        top: 0px; 
+        background-color: #fff;
+        padding: 10px 0;
+    }
+    .nav-toggle { top: 20px;}
+    .slider {  margin-top: 0px;}
+    .sticky.header_area { top: 0;}
+    .rcs a.btn_1 { padding: 10px 12px; font-size: 13px;}
+ 
+
+
+
+
+    .os_title { margin: -90px -113% 0 0;}
+    .arise_sec {height: inherit;}
+    .contact_row {  padding-bottom: 50px;}
+    .gallery .col { width: 32%;}
+    .testimonial_sec .title h2 { font-size: 40px; line-height: 50px;}
+    #carouselExamplee { width: 100%;}
+    #carouselExamplee .carousel-control-next, #carouselExamplee .carousel-control-prev { width: auto;}
+    section.aboutSBC_sec, .events_sec, .testimonial_sec, .footer_sec, .common_sec {padding-top: 50px; padding-bottom: 50px;}
+    
+    #carouselExamplee .carousel-control-next img, #carouselExamplee .carousel-control-prev img{width: 20px;}
+    .zig_row, .zig_row.zig_row_odd { padding: 0%; margin: 0 0 30px;}
+    .zig_row .col-sm-12{padding: 0 15px !important;}
+    .zig_row.zig_row_odd {flex-direction: column-reverse;}
+    .zig_row.zig_row_equal { padding: 0px 0%;}
+    .inner_banner .carousel-caption .caption_box h1 { font-size: 56px; line-height: 60px;}
+  
+
+  .adrs_box{margin-bottom: 35px;}
+  ul.top_adm{display: none;}
+
+  /* about us */
+
+  .abt_col{display: flex; flex-direction: column;}
+  .abt_col .title{order: 1;}
+  .abt_col .about_img{order: 2; width: 100%; margin: 20px auto 30px;}
+  .abt_col p{order: 3;}
+  .abt_col .title h4 { font-size: 30px;}
+
+  .about_sec1 {padding: 0 0;}
+  .career_list_sec1{padding: 0;}
+  .career_details_sec1{padding: 0;}
+  .career_detail_row{display: block; }
+  .career_detail_row .title h2 br{display: none;}
+}
+
+
+
+@media (max-width : 585px) {
+    .carousel-item h1 { font-size: 26px; line-height: 35px;}
+   
+    
+    
+    .gallery .col {  width: 49%; }
+
+    .nav-brand.logo img { width: 100%;}
+    .nav-header { width: 170px;}
+    .nav-toggle { right: 0px;}
+
+    
+    .owl-carousel.owl-two .owl-nav { left: 3%;width: 94%;}
+
+    .service_col h3 { min-height:auto;}
+    /* --contact-- */
+/* 
+    .my-form .grid { display: grid; grid-gap: 1.5rem;}
+    .my-form .grid-2 { grid-template-columns: 1fr 1fr;}
+    .my-form .grid-3 { grid-template-columns: auto auto auto; align-items: center;}
+    .my-form .grid > *:not(:last-child) { margin-bottom: 0;}
+    .my-form .required-msg { display: block;} */
+
+    .slider.inner_banner img.slide_img {  height: 500px;}
+    .inner_banner .caption_box { display: flex; flex-direction: column-reverse;}
+    .inner_banner .carousel-caption .caption_box .inner_banner_box img { width: 60%;}
+    .inner_banner_box { margin: 0 auto 20px; text-align: center;}
+    .inner_banner .carousel-caption .caption_box .caption_left { text-align: center;}
+    .inner_banner .carousel-caption .caption_box .caption_left h2 {  text-align: center;}
+    .career_box h3 { font-size: 35px; line-height: 40px;}
+    .join_sec .title {padding-bottom: 0;}
+    .our_value_sec { padding: 100px 0 50px;}
+
+
+
+    .career_list_row { display: block;}
+    
+    .footer_sec{
+        padding-top: 50px;
+        padding-bottom: 20px;
+    }
+   
+
+}
+
+
+
+
+@media (max-width : 480px) {
+    section.aboutSBC_sec .aboutSBC_container {  margin: 0 auto 0 27px;}
+    .hr_img img{width: 100%;}
+
+
+    
+    
+
+
+}
+
+
+
+
+
+
+
+

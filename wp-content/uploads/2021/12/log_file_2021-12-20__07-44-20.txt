@@ -1,0 +1,54 @@
+
+---Downloaded files---
+The import files for: ReViewit were successfully downloaded!
+Initial max execution time = 30
+Files info:
+Site URL = https://myeverythinggolf.com
+Data file = /home2/myevesf4/public_html/wp-content/uploads/2021/12/demo-content-import-file_2021-12-20__07-44-20.xml
+Widget file = /home2/myevesf4/public_html/wp-content/uploads/2021/12/demo-widgets-import-file_2021-12-20__07-44-20.json
+Customizer file = not defined!
+Redux files:
+not defined!
+
+---ocdi/before_content_import---
+
+
+------
+New AJAX call!
+
+
+---Importing widgets---
+Post Sidebar Area : 
+
+ReHub: Ajax Tabs - No Title - Imported
+ReHub: Better categories - No Title - Imported
+ReHub: Sticky on scroll - No Title - Imported
+
+Footer 1 : 
+
+Text - About Rehub - Imported
+
+Footer 2 : 
+
+Text - No Title - Imported
+
+Footer 3 : 
+
+Text - Sign Up for Weekly Newsletter - Imported
+ReHub: Social icons - No Title - Imported
+
+Custom sidebar area : 
+
+Archives - No Title - Imported
+Categories - No Title - Imported
+Meta - No Title - Imported
+
+Blog sidebar Area : 
+
+ReHub: Better categories - No Title - Imported
+ReHub: Sticky on scroll - No Title - Imported
+
+
+
+---ocdi/after_import---
+Theme Options was updated-------Customizer was updated-------Menu was assigned-------Menu hierarchy was fixed-------Menu hierarchy was fixed-------Menu hierarchy was fixed-------HomePage was assigned-------

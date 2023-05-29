@@ -1,0 +1,4 @@
+[01-Dec-2022 02:05:15 America/Boise] PHP Fatal error:  Uncaught Error: Call to undefined function __() in /home2/myevesf4/public_html/golfersu/wp-admin/user/menu.php:10
+Stack trace:
+#0 {main}
+  thrown in /home2/myevesf4/public_html/golfersu/wp-admin/user/menu.php on line 10

@@ -1,0 +1,933 @@
+ <div class="pagetitle">
+      <h1>Add New Proposal</h1>
+      
+      <!-- <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+          <li class="breadcrumb-item active">Transcriber Management</li>
+        </ol>
+      </nav> -->
+    </div><!-- End Page Title -->
+
+<section class="section transcriber_management">
+  
+
+        <div class="row">
+
+                <!-- Left side columns -->
+                <div class="col-lg-12 mt-5">
+
+                <!-- Nav tabs -->
+                    <ul class="nav nav-tabs">
+                      <li class="nav-item">
+                        <a class="nav-link active"  aria-selected="true" id="step1_tab" role="tab" href="#step1">Step 01</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link"  aria-selected="false" id="step2_tab" role="tab" href="#step2">Step 02</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link"  aria-selected="false" id="step3_tab" role="tab" href="#step3">Step 03</a>
+                      </li>
+                    </ul>
+                    <form method="POST" action="<?php echo site_url();?>/proposal">
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+                      <div class="tab-pane active" id="step1">
+
+                          <div class="thumb-pic">
+                          <!-- <img src="<?php echo base_url();?>public/assets/img/step1.jpg" alt=""> -->
+                          <table class="table" style="height: 355px; width: 524px; background-color: #eff0ef; border-color: green;" border="2px">
+                            <tbody>
+                                <tr style="height: 34px;">
+                                <td style="width: 216.855px; height: 34px;"><strong><span style="font-size: 12pt;">&nbsp; Customer No.</span></strong></td>
+                                <td style="width: 290.41px; height: 34px;"><span style="font-size: 12pt;">&nbsp;<span style="white-space: pre-wrap" class="replaceTag customer_no_data" default=""></span></span></td>
+                                </tr>
+                                <tr style="height: 1px;">
+                                <td style="width: 216.855px; height: 1px;">
+                                    <p><strong><span style="font-size: 12pt;">&nbsp; Name</span></strong></p>
+                                </td>
+                                <td style="width: 290.41px; height: 1px;"><span style="font-size: 12pt;">&nbsp;<span style="white-space: pre-wrap" class="replaceTag customer_name_data" default=""></span></span></td>
+                                </tr>
+                                <tr style="height: 44px;">
+                                <td style="width: 216.855px; height: 44px;"><span style="font-size: 12pt;"><strong>&nbsp; Contact</strong></span></td>
+                                <td style="width: 290.41px; height: 44px;"><span style="font-size: 12pt;">&nbsp;<span style="white-space: pre-wrap" class="replaceTag customer_contact_data" default=""></span></span></td>
+                                </tr>
+                                <tr style="height: 46px;">
+                                <td style="width: 216.855px; height: 46px;"><strong><span style="font-size: 12pt;">&nbsp; Email</span></strong></td>
+                                <td style="width: 290.41px; height: 46px;"><span style="font-size: 12pt;">&nbsp;<span style="white-space: pre-wrap" class="replaceTag customer_email_data" default=""></span></span></td>
+                                </tr>
+                                <tr style="height: 66px;">
+                                <td style="width: 216.855px; height: 66px;"><strong><span style="font-size: 12pt;">&nbsp; Address</span></strong></td>
+                                <td style="width: 290.41px; height: 66px;"><span style="font-size: 12pt;">&nbsp;<span style="white-space: pre-wrap" class="replaceTag customer_address_data" default=""></span></span></td>
+                                </tr>
+                                <tr style="height: 52.8945px;">
+                                <td style="width: 216.855px; height: 52.8945px;"><strong><span style="font-size: 12pt;">&nbsp; Lawn Size</span></strong></td>
+                                <td style="width: 290.41px; height: 52.8945px;"><span style="font-size: 12pt;">&nbsp;<span style="white-space: pre-wrap" class="replaceTag customer_lwan_size_data" default=""></span></span></td>
+                                </tr>
+                            </tbody>
+                            </table>
+                              
+                              <div class="row">
+                                  <div class="col-sm-6 col-md-6 mb-3">
+                                      <div class="form-inner">
+                                          <label for="fname">Customer No :</label>
+                                          <input type="text" id="customer_no" class="form-control" name="customer_no" value="">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-6 mb-3">
+                                      <label for="lname">Customer's Name:</label>
+                                        <input type="text" id="customer_name" name="customer_name" class="form-control" value="">
+                                    </div>
+                                    <!-- <div class="col-sm-6 col-md-6 mb-3">
+                                      <label for="fname">Customer No :</label>
+                                        <input type="text" class="form-control" id="customer_no" name="customer_no" value="">
+                                    </div> -->
+                                  <div class="col-sm-6 col-md-6 mb-3">
+                                      <label for="fname">Phone Number :</label>
+                                        <input type="text" class="form-control" id="phone_number" name="phone_number" value="">
+                                    </div>
+                                  <div class="col-sm-6 col-md-6 mb-3">
+                                      <label for="fname">Email :</label>
+                                        <input type="text" class="form-control" id="email" name="email" value="">
+                                    </div>
+                                  <div class="col-sm-6 col-md-6 mb-3">
+                                      <label for="fname">Address :</label>
+                                        <input type="text" class="form-control" id="address" name="address" value="">
+                                    </div>
+                                  <div class="col-sm-6 col-md-6 mb-3">
+                                      <label for="fname">Street Address :</label>
+                                        <input type="text" class="form-control" id="street_address" name="" value="">
+                                    </div>
+                                  <div class="col-sm-6 col-md-6 mb-3">
+                                      <label for="fname">Street Address Line 2 :</label><br>
+                                        <input type="text" class="form-control" id="street_address2" name="street_address2" value="">
+                                    </div>
+                                  <div class="col-sm-6 col-md-6 mb-3">
+                                      <label for="fname">City :</label>
+                                    <input type="text" class="form-control" id="city" name="city" value="">
+                                    </div>
+                                  <div class="col-sm-6 col-md-6 mb-3">
+                                      <label for="fname">State / Province :</label>
+                                    <input type="text" class="form-control" id="state" name="state" value="">
+                                    </div>
+                                  <div class="col-sm-6 col-md-6 mb-3">
+                                      <label for="fname">Postal / Zip Code :</label>
+                                        <input type="text" class="form-control" id="postal" name="postal" value="">
+                                    </div>
+                                  <div class="col-sm-6 col-md-6 mb-3">
+                                      <label for="fname">Lawn Size (kilo sq. ft.) :</label>
+                                    <input type="text" class="form-control" id="lawn_size" name="lawn_size" value="">
+                                    </div>
+                              </div>
+
+
+                          </div>
+                          <div class="btnsec">
+                              <div class="btn-left"></div>
+                              <div class="btn-right">
+                                  <!-- <a href="javascript:void(0);" class="btn save-btn">Save</a> -->
+                                <a href="javascript:void(0);" class="btn next-btn firstNext">Next</a>
+                              </div>
+                          </div>
+                        </div>
+                        
+                      <div class="tab-pane fade" id="step2">
+                          <div class="thumb-pic">
+
+                          <?php if(!empty($services)){
+                                $i = 0;
+                                foreach($services as $service){?>
+
+                              <div class="form-popupdata core_service_<?php echo $service->id;?>" style="display:none;">
+                                  <div class="form-data-header">
+                                    <h3><?php echo $service->service_name;?></h3>
+                                      <a href="javascript:void(0);" class="btn">Recommended</a>
+                                  </div>
+                                  <div class="form-data-body">
+                                      <?php echo $service->description;?>
+                                      <!-- <p>We offer an annual 8-service lawn care maintainer program that includes fertilization and weed control with each application. Our specialized Lawn Maintainer program will provide your grass with a unique fertilization and pre-emergent weed control plan to suit our growing conditions. When fertilizing, our experienced team always uses slow-release fertilizers that are high in nutrients to guarantee lush and long-term grass fitness. Spot post-emergent weed control is performed every visit. Applications are done about every 6 weeks, and we will come out between services at no extra charge to take care of any weeds that may crop up or address any other issues you may have.</p>
+                                      <h4>Fertilization + Weed Control ONLY</h4> -->
+                                      <table style=" width: 466px; background-color: #eff0ef;">
+                                          <tbody>
+                                            <tr>
+                                              <td style="width: 289.473px; height: 14px;">&nbsp; Price Per Application</td>
+                                              <td style="width: 161.289px; text-align: center; height: 14px;"><strong>$ <span style="white-space: pre-wrap" class="replaceTag pricePerApplication" default=""></span>&nbsp;</strong></td>
+                                            </tr>
+                                            <tr >
+                                              <td style="width: 289.473px; height: 23px;">&nbsp; Discount Applied</td>
+                                              <td style="width: 161.289px; text-align: center; height: 23px;">&nbsp;</td>
+                                            </tr>
+                                            <tr >
+                                              <td style="width: 289.473px; height: 23px; text-align: right;"><span style="white-space: pre-wrap" class="replaceTag 109_discountText" default=""></span>&nbsp;</td>
+                                              <td style="width: 161.289px; text-align: center; height: 23px;"><span style="white-space: pre-wrap" class="replaceTag 109_typeA307" default=""></span>&nbsp;</td>
+                                            </tr>
+                                            <tr>
+                                              <td style="width: 289.473px; height: 23px; text-align: right;"><span style="white-space: pre-wrap" class="replaceTag 109_individualDiscount320" default=""></span>&nbsp;</td>
+                                              <td style="width: 161.289px; text-align: center; height: 23px;"><span style="white-space: pre-wrap" class="replaceTag 109_totalIndividual" default=""></span>&nbsp;</td>
+                                            </tr>
+                                            <tr>
+                                              <td style="width: 289.473px; height: 19px;">&nbsp; Full Year Applications</td>
+                                              <td style="width: 161.289px; text-align: center; height: 19px;">&nbsp;<strong>8</strong></td>
+                                            </tr>
+                                            <tr>
+                                              <td style="width: 289.473px; height: 19px;">&nbsp; Remaining Applications</td>
+                                              <td style="width: 161.289px; text-align: center; height: 19px;"><strong>&nbsp; <span style="white-space: pre-wrap" class="replaceTag 109_numberOf" default=""></span></strong>&nbsp;</td>
+                                            </tr>
+                                            <tr>
+                                              <td style="width: 289.473px; height: 19px;">&nbsp;&nbsp;Total this year</td>
+                                              <td style="width: 161.289px; text-align: center; height: 19px;"><strong>&nbsp;$ <span style="white-space: pre-wrap" class="replaceTag totalThisYear" default=""></span>&nbsp;</strong></td>
+                                            </tr>
+                                            <tr>
+                                              <td style="width: 289.473px; height: 20px;">&nbsp; Total Full Year</td>
+                                              <td style="width: 161.289px; text-align: center; height: 20px;">&nbsp;&nbsp;<strong>$ <span style="white-space: pre-wrap" class="replaceTag totalFullYear" default=""></span></strong></td>
+                                            </tr>
+                                          </tbody>
+                                        </table>
+                                  </div>
+                                  <div class="form-data-footer">
+                                      <h3><?php echo $service->service_name;?> (Recommended)</h3>
+                                      <div class="form-check">
+                                          <input type="radio" class="form-check-input" id="radio1" name="optradio" value="option1" checked>Yes
+                                          <label class="form-check-label" for="radio1"></label>
+                                        </div>
+                                        <div class="form-check">
+                                          <input type="radio" class="form-check-input" id="radio2" name="optradio" value="option2">No
+                                          <label class="form-check-label" for="radio2"></label>
+                                        </div>
+                                  </div>
+                              </div>
+                              <?php /*if(isset($service_optionals[$i])){?>
+
+                                    <div class="form-popupdata core_service_optional_<?php echo $service_optionals[$i]->id;?>" style="display:none;">
+                                      <div class="form-data-header">
+                                        <h3><?php echo $service_optionals[$i]->service_name;?></h3>
+                                          <a href="javascript:void(0);" class="btn">Optional</a>
+                                      </div>
+                                      <div class="form-data-body">
+                                          <?php echo $service_optionals[$i]->description;?>
+                                          <!-- <p>We offer an annual 8-service lawn care maintainer program that includes fertilization and weed control with each application. Our specialized Lawn Maintainer program will provide your grass with a unique fertilization and pre-emergent weed control plan to suit our growing conditions. When fertilizing, our experienced team always uses slow-release fertilizers that are high in nutrients to guarantee lush and long-term grass fitness. Spot post-emergent weed control is performed every visit. Applications are done about every 6 weeks, and we will come out between services at no extra charge to take care of any weeds that may crop up or address any other issues you may have.</p>
+                                          <h4>Fertilization + Weed Control ONLY</h4> -->
+                                          <table style=" width: 466px; background-color: #eff0ef;">
+                                              <tbody>
+                                                <tr>
+                                                  <td style="width: 289.473px; height: 14px;">&nbsp; Price Per Application</td>
+                                                  <td style="width: 161.289px; text-align: center; height: 14px;"><strong>$ <span style="white-space: pre-wrap" class="replaceTag 109_unitPrice100" default=""></span>&nbsp;</strong></td>
+                                                </tr>
+                                                <tr >
+                                                  <td style="width: 289.473px; height: 23px;">&nbsp; Discount Applied</td>
+                                                  <td style="width: 161.289px; text-align: center; height: 23px;">&nbsp;</td>
+                                                </tr>
+                                                <tr >
+                                                  <td style="width: 289.473px; height: 23px; text-align: right;"><span style="white-space: pre-wrap" class="replaceTag 109_discountText" default=""></span>&nbsp;</td>
+                                                  <td style="width: 161.289px; text-align: center; height: 23px;"><span style="white-space: pre-wrap" class="replaceTag 109_typeA307" default=""></span>&nbsp;</td>
+                                                </tr>
+                                                <tr>
+                                                  <td style="width: 289.473px; height: 23px; text-align: right;"><span style="white-space: pre-wrap" class="replaceTag 109_individualDiscount320" default=""></span>&nbsp;</td>
+                                                  <td style="width: 161.289px; text-align: center; height: 23px;"><span style="white-space: pre-wrap" class="replaceTag 109_totalIndividual" default=""></span>&nbsp;</td>
+                                                </tr>
+                                                <tr>
+                                                  <td style="width: 289.473px; height: 19px;">&nbsp; Full Year Applications</td>
+                                                  <td style="width: 161.289px; text-align: center; height: 19px;">&nbsp;<strong>8</strong></td>
+                                                </tr>
+                                                <tr>
+                                                  <td style="width: 289.473px; height: 19px;">&nbsp; Remaining Applications</td>
+                                                  <td style="width: 161.289px; text-align: center; height: 19px;"><strong>&nbsp; <span style="white-space: pre-wrap" class="replaceTag 109_numberOf" default=""></span></strong>&nbsp;</td>
+                                                </tr>
+                                                <tr>
+                                                  <td style="width: 289.473px; height: 19px;">&nbsp;&nbsp;Total this year</td>
+                                                  <td style="width: 161.289px; text-align: center; height: 19px;"><strong>&nbsp;$ <span style="white-space: pre-wrap" class="replaceTag 109_totalThis" default=""></span>&nbsp;</strong></td>
+                                                </tr>
+                                                <tr>
+                                                  <td style="width: 289.473px; height: 20px;">&nbsp; Total Full Year</td>
+                                                  <td style="width: 161.289px; text-align: center; height: 20px;">&nbsp;&nbsp;<strong>$ <span style="white-space: pre-wrap" class="replaceTag 109_totalFull" default=""></span></strong></td>
+                                                </tr>
+                                              </tbody>
+                                            </table>
+                                      </div>
+                                      <div class="form-data-footer">
+                                          <h3><?php echo $service_optionals[$i]->service_name;?> (Optional)</h3>
+                                          <div class="form-check">
+                                              <input type="radio" class="form-check-input" id="radio1" name="optradio" value="option1" checked>Yes
+                                              <label class="form-check-label" for="radio1"></label>
+                                            </div>
+                                            <div class="form-check">
+                                              <input type="radio" class="form-check-input" id="radio2" name="optradio" value="option2">No
+                                              <label class="form-check-label" for="radio2"></label>
+                                            </div>
+                                      </div>
+                                  </div>
+                              <?php }*/ ?>
+                              
+
+
+                            <?php $i++; } }?>
+
+
+                              <?php if(!empty($outdoor_pest_controls)){
+                                $i = 0;
+                                foreach($outdoor_pest_controls as $service){?>
+
+                              <div class="form-popupdata outdoor_service_<?php echo $service->id;?>" style="display:none;">
+                                  <div class="form-data-header">
+                                    <h3><?php echo $service->service_name;?></h3>
+                                      <a href="javascript:void(0);" class="btn">Recommended</a>
+                                  </div>
+                                  <div class="form-data-body">
+                                      <?php echo $service->description;?>
+                                      <!-- <p>We offer an annual 8-service lawn care maintainer program that includes fertilization and weed control with each application. Our specialized Lawn Maintainer program will provide your grass with a unique fertilization and pre-emergent weed control plan to suit our growing conditions. When fertilizing, our experienced team always uses slow-release fertilizers that are high in nutrients to guarantee lush and long-term grass fitness. Spot post-emergent weed control is performed every visit. Applications are done about every 6 weeks, and we will come out between services at no extra charge to take care of any weeds that may crop up or address any other issues you may have.</p>
+                                      <h4>Fertilization + Weed Control ONLY</h4> -->
+                                      <table style=" width: 466px; background-color: #eff0ef;">
+                                          <tbody>
+                                            <tr>
+                                              <td style="width: 289.473px; height: 14px;">&nbsp; Price Per Application</td>
+                                              <td style="width: 161.289px; text-align: center; height: 14px;"><strong>$ <span style="white-space: pre-wrap" class="replaceTag pricePerApplication" default=""></span>&nbsp;</strong></td>
+                                            </tr>
+                                            <tr >
+                                              <td style="width: 289.473px; height: 23px;">&nbsp; Discount Applied</td>
+                                              <td style="width: 161.289px; text-align: center; height: 23px;">&nbsp;</td>
+                                            </tr>
+                                            <tr >
+                                              <td style="width: 289.473px; height: 23px; text-align: right;"><span style="white-space: pre-wrap" class="replaceTag 109_discountText" default=""></span>&nbsp;</td>
+                                              <td style="width: 161.289px; text-align: center; height: 23px;"><span style="white-space: pre-wrap" class="replaceTag 109_typeA307" default=""></span>&nbsp;</td>
+                                            </tr>
+                                            <tr>
+                                              <td style="width: 289.473px; height: 23px; text-align: right;"><span style="white-space: pre-wrap" class="replaceTag 109_individualDiscount320" default=""></span>&nbsp;</td>
+                                              <td style="width: 161.289px; text-align: center; height: 23px;"><span style="white-space: pre-wrap" class="replaceTag 109_totalIndividual" default=""></span>&nbsp;</td>
+                                            </tr>
+                                            <tr>
+                                              <td style="width: 289.473px; height: 19px;">&nbsp; Full Year Applications</td>
+                                              <td style="width: 161.289px; text-align: center; height: 19px;">&nbsp;<strong>8</strong></td>
+                                            </tr>
+                                            <tr>
+                                              <td style="width: 289.473px; height: 19px;">&nbsp; Remaining Applications</td>
+                                              <td style="width: 161.289px; text-align: center; height: 19px;"><strong>&nbsp; <span style="white-space: pre-wrap" class="replaceTag 109_numberOf" default=""></span></strong>&nbsp;</td>
+                                            </tr>
+                                            <tr>
+                                              <td style="width: 289.473px; height: 19px;">&nbsp;&nbsp;Total this year</td>
+                                              <td style="width: 161.289px; text-align: center; height: 19px;"><strong>&nbsp;$ <span style="white-space: pre-wrap" class="replaceTag totalThisYear" default=""></span>&nbsp;</strong></td>
+                                            </tr>
+                                            <tr>
+                                              <td style="width: 289.473px; height: 20px;">&nbsp; Total Full Year</td>
+                                              <td style="width: 161.289px; text-align: center; height: 20px;">&nbsp;&nbsp;<strong>$ <span style="white-space: pre-wrap" class="replaceTag totalFullYear" default=""></span></strong></td>
+                                            </tr>
+                                          </tbody>
+                                        </table>
+                                  </div>
+                                  <div class="form-data-footer">
+                                      <h3><?php echo $service->service_name;?> (Recommended)</h3>
+                                      <div class="form-check">
+                                          <input type="radio" class="form-check-input" id="radio1" name="optradio" value="option1" checked>Yes
+                                          <label class="form-check-label" for="radio1"></label>
+                                        </div>
+                                        <div class="form-check">
+                                          <input type="radio" class="form-check-input" id="radio2" name="optradio" value="option2">No
+                                          <label class="form-check-label" for="radio2"></label>
+                                        </div>
+                                  </div>
+                              </div>
+                              <?php /*if(isset($outdoor_pest_optional_controls[$i])){?>
+
+                                    <div class="form-popupdata outdoor_service_optional_<?php echo $outdoor_pest_optional_controls[$i]->id;?>" style="display:none;">
+                                      <div class="form-data-header">
+                                        <h3><?php echo $outdoor_pest_optional_controls[$i]->service_name;?></h3>
+                                          <a href="javascript:void(0);" class="btn">Optional</a>
+                                      </div>
+                                      <div class="form-data-body">
+                                          <?php echo $outdoor_pest_optional_controls[$i]->description;?>
+                                          <!-- <p>We offer an annual 8-service lawn care maintainer program that includes fertilization and weed control with each application. Our specialized Lawn Maintainer program will provide your grass with a unique fertilization and pre-emergent weed control plan to suit our growing conditions. When fertilizing, our experienced team always uses slow-release fertilizers that are high in nutrients to guarantee lush and long-term grass fitness. Spot post-emergent weed control is performed every visit. Applications are done about every 6 weeks, and we will come out between services at no extra charge to take care of any weeds that may crop up or address any other issues you may have.</p>
+                                          <h4>Fertilization + Weed Control ONLY</h4> -->
+                                          <table style=" width: 466px; background-color: #eff0ef;">
+                                              <tbody>
+                                                <tr>
+                                                  <td style="width: 289.473px; height: 14px;">&nbsp; Price Per Application</td>
+                                                  <td style="width: 161.289px; text-align: center; height: 14px;"><strong>$ <span style="white-space: pre-wrap" class="replaceTag 109_unitPrice100" default=""></span>&nbsp;</strong></td>
+                                                </tr>
+                                                <tr >
+                                                  <td style="width: 289.473px; height: 23px;">&nbsp; Discount Applied</td>
+                                                  <td style="width: 161.289px; text-align: center; height: 23px;">&nbsp;</td>
+                                                </tr>
+                                                <tr >
+                                                  <td style="width: 289.473px; height: 23px; text-align: right;"><span style="white-space: pre-wrap" class="replaceTag 109_discountText" default=""></span>&nbsp;</td>
+                                                  <td style="width: 161.289px; text-align: center; height: 23px;"><span style="white-space: pre-wrap" class="replaceTag 109_typeA307" default=""></span>&nbsp;</td>
+                                                </tr>
+                                                <tr>
+                                                  <td style="width: 289.473px; height: 23px; text-align: right;"><span style="white-space: pre-wrap" class="replaceTag 109_individualDiscount320" default=""></span>&nbsp;</td>
+                                                  <td style="width: 161.289px; text-align: center; height: 23px;"><span style="white-space: pre-wrap" class="replaceTag 109_totalIndividual" default=""></span>&nbsp;</td>
+                                                </tr>
+                                                <tr>
+                                                  <td style="width: 289.473px; height: 19px;">&nbsp; Full Year Applications</td>
+                                                  <td style="width: 161.289px; text-align: center; height: 19px;">&nbsp;<strong>8</strong></td>
+                                                </tr>
+                                                <tr>
+                                                  <td style="width: 289.473px; height: 19px;">&nbsp; Remaining Applications</td>
+                                                  <td style="width: 161.289px; text-align: center; height: 19px;"><strong>&nbsp; <span style="white-space: pre-wrap" class="replaceTag 109_numberOf" default=""></span></strong>&nbsp;</td>
+                                                </tr>
+                                                <tr>
+                                                  <td style="width: 289.473px; height: 19px;">&nbsp;&nbsp;Total this year</td>
+                                                  <td style="width: 161.289px; text-align: center; height: 19px;"><strong>&nbsp;$ <span style="white-space: pre-wrap" class="replaceTag 109_totalThis" default=""></span>&nbsp;</strong></td>
+                                                </tr>
+                                                <tr>
+                                                  <td style="width: 289.473px; height: 20px;">&nbsp; Total Full Year</td>
+                                                  <td style="width: 161.289px; text-align: center; height: 20px;">&nbsp;&nbsp;<strong>$ <span style="white-space: pre-wrap" class="replaceTag 109_totalFull" default=""></span></strong></td>
+                                                </tr>
+                                              </tbody>
+                                            </table>
+                                      </div>
+                                      <div class="form-data-footer">
+                                          <h3><?php echo $outdoor_pest_optional_controls[$i]->service_name;?> (Optional)</h3>
+                                          <div class="form-check">
+                                              <input type="radio" class="form-check-input" id="radio1" name="optradio" value="option1" checked>Yes
+                                              <label class="form-check-label" for="radio1"></label>
+                                            </div>
+                                            <div class="form-check">
+                                              <input type="radio" class="form-check-input" id="radio2" name="optradio" value="option2">No
+                                              <label class="form-check-label" for="radio2"></label>
+                                            </div>
+                                      </div>
+                                  </div>
+                              <?php } */?>
+                              
+
+
+                            <?php $i++; } }?>
+
+
+
+                             <?php if(!empty($individual_services)){
+                                $i = 0;
+                                foreach($individual_services as $service){?>
+
+                              <div class="form-popupdata individual_service_<?php echo $service->id;?>" style="display:none;">
+                                  <div class="form-data-header">
+                                    <h3><?php echo $service->service_name;?></h3>
+                                      <a href="javascript:void(0);" class="btn">Recommended</a>
+                                  </div>
+                                  <div class="form-data-body">
+                                      <?php echo $service->description;?>
+                                      <!-- <p>We offer an annual 8-service lawn care maintainer program that includes fertilization and weed control with each application. Our specialized Lawn Maintainer program will provide your grass with a unique fertilization and pre-emergent weed control plan to suit our growing conditions. When fertilizing, our experienced team always uses slow-release fertilizers that are high in nutrients to guarantee lush and long-term grass fitness. Spot post-emergent weed control is performed every visit. Applications are done about every 6 weeks, and we will come out between services at no extra charge to take care of any weeds that may crop up or address any other issues you may have.</p>
+                                      <h4>Fertilization + Weed Control ONLY</h4> -->
+                                      <table style=" width: 466px; background-color: #eff0ef;">
+                                          <tbody>
+                                            <tr>
+                                              <td style="width: 289.473px; height: 14px;">&nbsp; Price Per Application</td>
+                                              <td style="width: 161.289px; text-align: center; height: 14px;"><strong>$ <span style="white-space: pre-wrap" class="replaceTag pricePerApplication" default=""></span>&nbsp;</strong></td>
+                                            </tr>
+                                            <tr >
+                                              <td style="width: 289.473px; height: 23px;">&nbsp; Discount Applied</td>
+                                              <td style="width: 161.289px; text-align: center; height: 23px;">&nbsp;</td>
+                                            </tr>
+                                            <tr >
+                                              <td style="width: 289.473px; height: 23px; text-align: right;"><span style="white-space: pre-wrap" class="replaceTag 109_discountText" default=""></span>&nbsp;</td>
+                                              <td style="width: 161.289px; text-align: center; height: 23px;"><span style="white-space: pre-wrap" class="replaceTag 109_typeA307" default=""></span>&nbsp;</td>
+                                            </tr>
+                                            <tr>
+                                              <td style="width: 289.473px; height: 23px; text-align: right;"><span style="white-space: pre-wrap" class="replaceTag 109_individualDiscount320" default=""></span>&nbsp;</td>
+                                              <td style="width: 161.289px; text-align: center; height: 23px;"><span style="white-space: pre-wrap" class="replaceTag 109_totalIndividual" default=""></span>&nbsp;</td>
+                                            </tr>
+                                            <tr>
+                                              <td style="width: 289.473px; height: 19px;">&nbsp; Full Year Applications</td>
+                                              <td style="width: 161.289px; text-align: center; height: 19px;">&nbsp;<strong>8</strong></td>
+                                            </tr>
+                                            <tr>
+                                              <td style="width: 289.473px; height: 19px;">&nbsp; Remaining Applications</td>
+                                              <td style="width: 161.289px; text-align: center; height: 19px;"><strong>&nbsp; <span style="white-space: pre-wrap" class="replaceTag 109_numberOf" default=""></span></strong>&nbsp;</td>
+                                            </tr>
+                                            <tr>
+                                              <td style="width: 289.473px; height: 19px;">&nbsp;&nbsp;Total this year</td>
+                                              <td style="width: 161.289px; text-align: center; height: 19px;"><strong>&nbsp;$ <span style="white-space: pre-wrap" class="replaceTag totalThisYear" default=""></span>&nbsp;</strong></td>
+                                            </tr>
+                                            <tr>
+                                              <td style="width: 289.473px; height: 20px;">&nbsp; Total Full Year</td>
+                                              <td style="width: 161.289px; text-align: center; height: 20px;">&nbsp;&nbsp;<strong>$ <span style="white-space: pre-wrap" class="replaceTag totalFullYear" default=""></span></strong></td>
+                                            </tr>
+                                          </tbody>
+                                        </table>
+                                  </div>
+                                  <!-- <div class="form-data-footer">
+                                      <h3><?php echo $service->service_name;?> (Recommended)</h3>
+                                      <div class="form-check">
+                                          <input type="radio" class="form-check-input" id="radio1" name="optradio" value="option1" checked>Yes
+                                          <label class="form-check-label" for="radio1"></label>
+                                        </div>
+                                        <div class="form-check">
+                                          <input type="radio" class="form-check-input" id="radio2" name="optradio" value="option2">No
+                                          <label class="form-check-label" for="radio2"></label>
+                                        </div>
+                                  </div> -->
+                              </div>
+                              
+                              
+
+
+                            <?php $i++; } }?>
+
+
+                            
+                              <div class="core-services">
+                                    <h3>CORE SERVICES</h3>
+                                   <div class="row mb-3">
+                                        <?php if(!empty($services)){
+                                          foreach($services as $service){?>
+                                            <div class="col-sm-6 col-md-6 mb-3">
+                                              <input type="checkbox" id="html" name="core_service[]" value="<?php echo $service->id;?>">
+                                              <label for="html"><?php echo $service->service_name;?></label>
+                                            </div>
+                                        <?php } } ?>
+                                    </div>
+
+                                    <!-- <h3>Optional</h3>
+                                   <div class="row mb-3">
+                                        <?php if(!empty($service_optionals)){
+                                          foreach($service_optionals as $service_optional){?>
+                                            <div class="col-sm-6 col-md-6 mb-3">
+                                              <input type="checkbox" id="html" name="core_service_optional[]" value="<?php echo $service_optional->id;?>">
+                                              <label for="html"><?php echo $service_optional->service_name;?></label>
+                                            </div>
+                                        <?php } } ?>
+                                    </div> -->
+
+                                </div>
+                              
+                              <div class="pest-services">
+                                  <h3>OUTDOOR PEST CONTROL</h3>
+                                    <div class="row mb-3">
+                                        <?php if(!empty($outdoor_pest_controls)){
+                                          foreach($outdoor_pest_controls as $outdoor_pest_control){
+                                          ?>
+                                          <div class="col-sm-6 col-md-6 mb-3">
+                                              <input type="checkbox" id="html" name="outdoor_pest_control[]" value="<?php echo $outdoor_pest_control->id;?>">
+                                              <label for="html"><?php echo $outdoor_pest_control->service_name;?></label>
+                                          </div>
+                                        <?php } } ?>
+                                    </div>
+
+                                    <!-- <h3>Optional</h3>
+                                    <div class="row mb-3">
+                                        <?php if(!empty($outdoor_pest_optional_controls)){
+                                          foreach($outdoor_pest_optional_controls as $outdoor_pest_optional_control){
+                                          ?>
+                                          <div class="col-sm-6 col-md-6 mb-3">
+                                              <input type="checkbox" id="html" name="outdoor_pest_control_optional[]" value="<?php echo $outdoor_pest_optional_control->id;?>">
+                                              <label for="html"><?php echo $outdoor_pest_optional_control->service_name;?></label>
+                                          </div>
+                                        <?php } } ?>
+                                    </div> -->
+
+                                </div>
+
+                                <div class="pest-services">
+                                  <h3>INDIVIDUAL SERVICE</h3>
+                                    <div class="row mb-3">
+                                        <?php if(!empty($individual_services)){
+                                          foreach($individual_services as $outdoor_pest_control){
+                                          ?>
+                                          <div class="col-sm-6 col-md-6 mb-3">
+                                              <input type="checkbox" id="html" name="individual_service[]" value="<?php echo $outdoor_pest_control->id;?>">
+                                              <label for="html"><?php echo $outdoor_pest_control->service_name;?></label>
+                                          </div>
+                                        <?php } } ?>
+                                    </div>
+
+                                    
+
+                                </div>
+
+                              <?php if(!empty($services)){
+                                
+                                foreach($services as $service){
+                                  $servicePriceData = $this->Common_model->getAllData('core_service_prices',array('core_service_id' => $service->id));
+                                  $i = 0;
+                                 
+                                  ?>
+                              <div class="step2-form service_price_<?php echo $service->id;?>" style="display:none;">
+                                  <input type="hidden" name="service_type[]" value="core_services">
+                                  <input type="hidden" name="hidden_core_service[]" value="<?php echo $service->id;?>">
+                                  <h2><?php echo $service->service_name;?></h2>
+                                   <div class="row">
+                                       <div class="col-sm-4 col-md-4 mb-3">
+                                           <label for="html">Size</label>
+                                            <select name="size[]" class="form-control service_size">
+                                              <option value="">Please Select</option>
+                                              <?php 
+                                              if($service->square_foot == 'yes'){
+             
+                                                if(!empty($servicePriceData)){
+                                                  foreach($servicePriceData as $servicePrice){
+                                                    ?>
+                                                    <option value="<?php echo $servicePrice->id;?>"><?php echo $servicePrice->square_foot ;?></option>
+                                                  <?php }
+                                                }
+                                              }else{
+                                                
+                                                foreach($servicePriceData as $servicePrice){
+                                                    ?>
+                                                    <option value="<?php echo $servicePrice->id;?>"><?php echo $servicePrice->service_minute ;?></option>
+                                                  <?php } }  
+                                              ?>
+                                            </select>
+
+                                           <?php /*if($service->id == 4 || $service->id == 7){?>
+                                              <select name="size[]" class="form-control service_size">
+                                                <option value="">Please Select</option>
+                                                <?php 
+                                                    $x = 15;
+                                                    $l = 1;
+                                                    for ($x = 15; $x <= 255; $x+=15) {
+                                                    // while($x <= 255) {
+                                                    // $total = $x * $l;  
+                                                    // $x = $total;
+                                                    // $l++;
+                                                    ?>
+                                                    <option value="<?php echo $x;?>"><?php echo $x;?></option>
+                                                <?php } ?>
+                                              </select>
+
+                                           <?php } else{?>
+                                            <select name="size[]" class="form-control service_size">
+                                            <option value="">Please Select</option>
+                                            <?php for($j = 2;$j <= 15;$j++){?>
+                                                <option value="<?php echo $j;?>"><?php echo $j;?></option>
+                                            <?php } ?>
+                                            </select>
+
+                                           <?php } */?>
+                                           
+                                            
+                                       </div>
+                                       <div class="col-sm-4 col-md-4 mb-3">
+                                           <label for="html">System Price Unit</label>
+                                            <input type="text" class="form-control" id="html" name="system_price_unit[]" value="">
+                                       </div>
+                                       <div class="col-sm-4 col-md-4 mb-3">
+                                           <label for="html">Number of Services</label>
+                                           <?php if($service->id == 1){?>
+                                                  <select name="service_number_service[]" class="form-control service_number_service">
+                                                  <option value="">Please Select</option>
+                                                  <?php for($j = 1;$j <= 15;$j++){?>
+                                                      <option value="<?php echo $j;?>"><?php echo $j;?></option>
+                                                  <?php } ?>
+                                                  </select>
+
+                                           <?php } elseif($service->id == 5){?>
+                                                    <select name="service_number_service[]" class="form-control service_number_service">
+                                                      <option value="">Please Select</option>
+                                                      <?php for($j = 1;$j <= 10;$j++){?>
+                                                          <option value="<?php echo $j;?>"><?php echo $j;?></option>
+                                                      <?php } ?>
+                                                    </select>
+
+                                           <?php }else{?>
+
+                                                  <select name="service_number_service[]" class="form-control service_number_service">
+                                                  <option value="">Please Select</option>
+                                                  <?php for($j = 2;$j <= 12;$j++){?>
+                                                      <option value="<?php echo $j;?>"><?php echo $j;?></option>
+                                                  <?php } ?>
+                                                  </select>
+
+                                           <?php } ?>
+                                           
+                                            <!-- <input type="text" class="form-control" id="html" name="fav_language" value=""> -->
+                                       </div>
+                                       <div class="col-sm-4 col-md-4 mb-3">
+                                           <label for="html">Individual Discount</label>
+                                           <select name="individual_discount[]" class="form-control individual_discount">
+                                                  <option value="">None</option>
+                                                  <?php if(!empty($individual_discount)){
+                                                        foreach($individual_discount as $individual_discountData){
+                                                    ?>
+                                                    <option value="<?php echo $individual_discountData->id;?>"><?php echo $individual_discountData->discount_name;?></option>
+                                                  <?php } } ?>
+                                            </select>
+                                       </div>
+                                       <div class="col-sm-4 col-md-4 mb-3">
+                                           <label for="html">Discount</label>
+                                            <select name="discount[]" class="form-control discount">
+                                                  <option value="">None</option>
+                                                  <?php if(!empty($discount)){
+                                                        foreach($discount as $discountData){
+                                                    ?>
+                                                    <option value="<?php echo $discountData->id;?>"><?php echo $discountData->discount_name;?></option>
+                                                  <?php } } ?>
+                                                  <!-- <option value="">Military/Veteran Discount</option>
+                                                  <option value="">Senior Citizen</option>
+                                                  <option value="">Friends and Family</option> -->
+                                                  
+                                            </select>
+                                       </div>
+                                       <div class="col-sm-4 col-md-4 mb-3">
+                                           <label for="html">Unit Price After All Discount</label>
+                                            <input type="text" class="form-control" id="html" name="unit_price[]" value="">
+                                       </div>
+                                       <div class="col-sm-4 col-md-4 mb-3">
+                                           <label for="html">Total this Year</label>
+                                            <input type="text" class="form-control" id="html" name="total_this_year[]" value="">
+                                       </div>
+                                       <div class="col-sm-4 col-md-4 mb-3">
+                                           <label for="html">Total Full Year</label>
+                                            <input type="text" class="form-control" id="html" name="total_full_year[]" value="">
+                                       </div>
+                                  </div>
+                              </div>
+                              <?php } } ?>
+
+                              <?php if(!empty($outdoor_pest_controls)){
+                                $i = 0;
+                                
+                                foreach($outdoor_pest_controls as $service){
+                                  $servicePriceData = $this->Common_model->getAllData('outdoor_pest_control_prices',array('outdoor_pest_control_id' => $service->id));
+                                  ?>
+                              <div class="step2-form outdoor_pest_price_<?php echo $service->id;?>" style="display:none;">
+                                  <input type="hidden" name="service_type[]" value="outdoor_pest_controls">
+                                  <input type="hidden" name="hidden_core_service[]" value="<?php echo $service->id;?>">
+                                  <h2><?php echo $service->service_name;?></h2>
+                                   <div class="row">
+                                       <div class="col-sm-4 col-md-4 mb-3">
+                                           <label for="html">Size</label>
+                                            <!-- <input type="text" class="form-control" id="html" name="fav_language" value=""> -->
+                                            
+                                              <select name="size[]" class="form-control service_size">
+                                                <option value="">Please Select</option>
+                                               <?php 
+                                                if($service->square_foot == 'yes'){
+              
+                                                  if(!empty($servicePriceData)){
+                                                    foreach($servicePriceData as $servicePrice){
+                                                      ?>
+                                                      <option value="<?php echo $servicePrice->id;?>"><?php echo $servicePrice->square_foot ;?></option>
+                                                    <?php }
+                                                  }
+                                                }else{
+                                                  
+                                                  foreach($servicePriceData as $servicePrice){
+                                                      ?>
+                                                      <option value="<?php echo $servicePrice->id;?>"><?php echo $servicePrice->service_minute ;?></option>
+                                                    <?php } }  
+                                                ?>
+                                              </select>
+
+                                           
+                                       </div>
+                                       <div class="col-sm-4 col-md-4 mb-3">
+                                           <label for="html">System Price Unit</label>
+                                            <input type="text" class="form-control" id="html" name="system_price_unit[]" value="">
+                                       </div>
+                                       <div class="col-sm-4 col-md-4 mb-3">
+                                           <label for="html">Number of Services</label>
+                                            <!-- <input type="text" class="form-control" id="html" name="fav_language" value=""> -->
+                                             <?php if($service->id == 1){?>
+                                                  <select name="service_number_service[]" class="form-control service_number_service">
+                                                  <option value="">Please Select</option>
+                                                  <?php for($j = 1;$j <= 15;$j++){?>
+                                                      <option value="<?php echo $j;?>"><?php echo $j;?></option>
+                                                  <?php } ?>
+                                                  </select>
+
+                                           <?php } elseif($service->id == 5){?>
+                                                    <select name="service_number_service[]" class="form-control service_number_service">
+                                                      <option value="">Please Select</option>
+                                                      <?php for($j = 1;$j <= 10;$j++){?>
+                                                          <option value="<?php echo $j;?>"><?php echo $j;?></option>
+                                                      <?php } ?>
+                                                    </select>
+
+                                           <?php }else{?>
+
+                                                  <select name="service_number_service[]" class="form-control service_number_service">
+                                                  <option value="">Please Select</option>
+                                                  <?php for($j = 2;$j <= 12;$j++){?>
+                                                      <option value="<?php echo $j;?>"><?php echo $j;?></option>
+                                                  <?php } ?>
+                                                  </select>
+
+                                           <?php } ?>
+                                       </div>
+                                       <div class="col-sm-4 col-md-4 mb-3">
+                                           <label for="html">Individual Discount</label>
+                                           <select name="individual_discount[]" class="form-control individual_discount">
+                                                  <option value="">None</option>
+                                                  <?php if(!empty($individual_discount)){
+                                                        foreach($individual_discount as $individual_discountData){
+                                                    ?>
+                                                    <option value="<?php echo $individual_discountData->id;?>"><?php echo $individual_discountData->discount_name;?></option>
+                                                  <?php } } ?>
+                                            </select>
+                                       </div>
+                                       <div class="col-sm-4 col-md-4 mb-3">
+                                           <label for="html">Discount</label>
+                                            <select name="discount[]" class="form-control discount">
+                                                  <option value="">None</option>
+                                                  <?php if(!empty($discount)){
+                                                        foreach($discount as $discountData){
+                                                    ?>
+                                                    <option value="<?php echo $discountData->id;?>"><?php echo $discountData->discount_name;?></option>
+                                                  <?php } } ?>
+                                                  <!-- <option value="">Military/Veteran Discount</option>
+                                                  <option value="">Senior Citizen</option>
+                                                  <option value="">Friends and Family</option> -->
+                                                  
+                                            </select>
+                                       </div>
+                                       <div class="col-sm-4 col-md-4 mb-3">
+                                           <label for="html">Unit Price After All Discount</label>
+                                            <input type="text" class="form-control" id="html" name="unit_price[]" value="">
+                                       </div>
+                                       <div class="col-sm-4 col-md-4 mb-3">
+                                           <label for="html">Total this Year</label>
+                                            <input type="text" class="form-control" id="html" name="total_this_year[]" value="">
+                                       </div>
+                                       <div class="col-sm-4 col-md-4 mb-3">
+                                           <label for="html">Total Full Year</label>
+                                            <input type="text" class="form-control" id="html" name="total_full_year[]" value="">
+                                       </div>
+                                  </div>
+                              </div>
+                              <?php } } ?>
+
+                              <?php if(!empty($individual_services)){
+                                $i = 0;
+                                foreach($individual_services as $service){
+                                  $servicePriceData = $this->Common_model->getAllData('individual_service_prices',array('core_service_id' => $service->id));
+                                  ?>
+                              <div class="step2-form individual_service_price_<?php echo $service->id;?>" style="display:none;">
+                                  <input type="hidden" name="hidden_core_service[]" value="<?php echo $service->id;?>">
+                                  <input type="hidden" name="service_type[]" value="individual_services">
+                                  <h2><?php echo $service->service_name;?></h2>
+                                   <div class="row">
+                                       <div class="col-sm-4 col-md-4 mb-3">
+                                           <label for="html">Size</label>
+                                            <!-- <input type="text" class="form-control" id="html" name="fav_language" value=""> -->
+                                            
+                                              <select name="size[]" class="form-control service_size">
+                                                <option value="">Please Select</option>
+                                                <?php 
+                                                if($service->square_foot == 'yes'){
+              
+                                                  if(!empty($servicePriceData)){
+                                                    foreach($servicePriceData as $servicePrice){
+                                                      ?>
+                                                      <option value="<?php echo $servicePrice->id;?>"><?php echo $servicePrice->square_foot ;?></option>
+                                                    <?php }
+                                                  }
+                                                }else{
+                                                  
+                                                  foreach($servicePriceData as $servicePrice){
+                                                      ?>
+                                                      <option value="<?php echo $servicePrice->id;?>"><?php echo $servicePrice->service_minute ;?></option>
+                                                    <?php } }  
+                                                ?>
+                                              </select>
+
+                                           
+
+                                           
+                                       </div>
+                                       <div class="col-sm-4 col-md-4 mb-3">
+                                           <label for="html">System Price Unit</label>
+                                            <input type="text" class="form-control" id="html" name="system_price_unit[]" value="">
+                                       </div>
+                                       <div class="col-sm-4 col-md-4 mb-3">
+                                           <label for="html">Number of Services</label>
+                                            <!-- <input type="text" class="form-control" id="html" name="fav_language" value=""> -->
+                                             <?php if($service->id == 1){?>
+                                                  <select name="service_number_service[]" class="form-control service_number_service">
+                                                  <option value="">Please Select</option>
+                                                  <?php for($j = 1;$j <= 15;$j++){?>
+                                                      <option value="<?php echo $j;?>"><?php echo $j;?></option>
+                                                  <?php } ?>
+                                                  </select>
+
+                                           <?php } elseif($service->id == 5){?>
+                                                    <select name="service_number_service[]" class="form-control service_number_service">
+                                                      <option value="">Please Select</option>
+                                                      <?php for($j = 1;$j <= 10;$j++){?>
+                                                          <option value="<?php echo $j;?>"><?php echo $j;?></option>
+                                                      <?php } ?>
+                                                    </select>
+
+                                           <?php }else{?>
+
+                                                  <select name="service_number_service[]" class="form-control service_number_service">
+                                                  <option value="">Please Select</option>
+                                                  <?php for($j = 2;$j <= 12;$j++){?>
+                                                      <option value="<?php echo $j;?>"><?php echo $j;?></option>
+                                                  <?php } ?>
+                                                  </select>
+
+                                           <?php } ?>
+                                       </div>
+                                       <div class="col-sm-4 col-md-4 mb-3">
+                                           <label for="html">Individual Discount</label>
+                                           <select name="individual_discount[]" class="form-control individual_discount">
+                                                  <option value="">None</option>
+                                                  <?php if(!empty($individual_discount)){
+                                                        foreach($individual_discount as $individual_discountData){
+                                                    ?>
+                                                    <option value="<?php echo $individual_discountData->id;?>"><?php echo $individual_discountData->discount_name;?></option>
+                                                  <?php } } ?>
+                                            </select>
+                                       </div>
+                                       <div class="col-sm-4 col-md-4 mb-3">
+                                           <label for="html">Discount</label>
+                                            <select name="discount[]" class="form-control discount">
+                                                  <option value="">None</option>
+                                                  <?php if(!empty($discount)){
+                                                        foreach($discount as $discountData){
+                                                    ?>
+                                                    <option value="<?php echo $discountData->id;?>"><?php echo $discountData->discount_name;?></option>
+                                                  <?php } } ?>
+                                                  <!-- <option value="">Military/Veteran Discount</option>
+                                                  <option value="">Senior Citizen</option>
+                                                  <option value="">Friends and Family</option> -->
+                                                  
+                                            </select>
+                                       </div>
+                                       <div class="col-sm-4 col-md-4 mb-3">
+                                           <label for="html">Unit Price After All Discount</label>
+                                            <input type="text" class="form-control" id="html" name="unit_price[]" value="">
+                                       </div>
+                                       <div class="col-sm-4 col-md-4 mb-3">
+                                           <label for="html">Total this Year</label>
+                                            <input type="text" class="form-control" id="html" name="total_this_year[]" value="">
+                                       </div>
+                                       <div class="col-sm-4 col-md-4 mb-3">
+                                           <label for="html">Total Full Year</label>
+                                            <input type="text" class="form-control" id="html" name="total_full_year[]" value="">
+                                       </div>
+                                  </div>
+                              </div>
+                              <?php } } ?>
+
+
+                          </div>
+                          <div class="btnsec">
+                              <div class="btn-left"><a href="javascript:void(0);" class="btn back-btn firstBack">Back</a></div>
+                              <div class="btn-right">
+                                  <!-- <a href="javascript:void(0);" class="btn save-btn">Save</a> -->
+                                <a href="javascript:void(0);" class="btn next-btn secondNext">Next</a>
+                              </div>
+                          </div>
+                    </div>
+                      <div class="tab-pane fade" id="step3">
+                        <div class="thumb-pic">
+                            <div class="form-check">
+                              <input class="form-check-input" type="checkbox" id="check1" name="option1" value="something" checked>
+                              <label class="form-check-label">I would like to lock the price for <?php echo date("Y");?> and prepay (optional)</label>
+                            </div>
+                          </div>
+                          <div class="btnsec">
+                              <div class="btn-left"><a href="javascript:void(0);" class="btn back-btn lastBack">Back</a></div>
+                              <div class="btn-right">
+                                  <!-- <a href="javascript:void(0);" class="btn save-btn">Save</a> -->
+                                <button type="submit" class="btn next-btn">Submit</a>
+                              </div>
+                          </div>
+                        </div>
+                    </div>
+                    </form>
+
+        </div>
+    </div>
+
+
+      </section>
